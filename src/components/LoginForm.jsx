@@ -1,7 +1,7 @@
 import * as React from "react";
 import axios from "axios";
 
-export default function Form() {
+export default function LoginForm() {
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
 
