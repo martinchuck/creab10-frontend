@@ -5,7 +5,7 @@ export default function LoginForm() {
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
 
-  const handleSubmit = async (event) => {
+  const handleLogin = async (event) => {
     event.preventDefault();
 
     try {
@@ -29,7 +29,7 @@ export default function LoginForm() {
       >
       Bienvenido! Por favor ingresa tus credenciales.
       </p>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleLogin}>
       <div className="mt-8">
         <div>
           <label className="text-lg font-medium" type="email">

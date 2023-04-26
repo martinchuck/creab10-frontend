@@ -1,4 +1,5 @@
 import LoginForm from "./components/LoginForm";
+import RegisterForm from "./components/RegisterForm";
 import Spinner from "./components/Spinner";
 
 function App() {
