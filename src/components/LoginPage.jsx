@@ -1,7 +1,8 @@
 import * as React from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
-export default function LoginForm() {
+export default function LoginPage() {
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
 
@@ -21,6 +22,8 @@ export default function LoginForm() {
   };
 
   return (
+
+
     <div className="bg-white px-10 py-20 rounded-3xl border-2 border-gray-200">
       <h1 className="text-5xl font-semibold font-semibold">Crea B10</h1>
       <p
@@ -102,10 +105,14 @@ export default function LoginForm() {
         </div>
         <div className="mt-8 flex justify-center items-center ">
            <p className="font-medium text-base">¿No tienes una cuenta?</p>
-           <button className="text-violet-500 text-base font-medium ml-2">Registrate</button>
+           <Link to="/register">
+           <button  className="text-violet-500 text-base font-medium ml-2">Registrate</button>
+           </Link>
         </div>
       </div>
       </form>
     </div>
+    
+    
   );
 }

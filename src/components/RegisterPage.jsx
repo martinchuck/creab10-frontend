@@ -1,7 +1,8 @@
 import React from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
-export default function RegisterForm() {
+export default function RegisterPage() {
   const [firstName, setFirstName] = React.useState("");
   const [lastName, setLastName] = React.useState("");
   const [email, setEmail] = React.useState("");
@@ -83,6 +84,12 @@ export default function RegisterForm() {
             >
               Registrate
             </button>
+            <div className="mt-8 flex justify-center items-center ">
+           <p className="font-medium text-base">¿Ya estas registrado?</p>
+           <Link to="/login">
+           <button  className="text-violet-500 text-base font-medium ml-2">Inicia Sesión</button>
+           </Link>
+        </div>
           </div>
         </div>
       </form>
