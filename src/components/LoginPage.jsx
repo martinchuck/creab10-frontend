@@ -1,24 +1,16 @@
 import * as React from "react";
-import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { login } from "../shared/login";
 
 export default function LoginPage() {
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
+  const navigate = useNavigate()
 
   const handleLogin = async (event) => {
     event.preventDefault();
-
-    try {
-      const response = await axios.post("http://localhost:3000/auth/login", {
-        email: email,
-        password: password,
-      });
-
-      console.log (response.data);
-    } catch (error) {
-      console.error(error);
-    }
+    await login(email, password);
+    navigate('/dashboard')
   };
 
   return (
