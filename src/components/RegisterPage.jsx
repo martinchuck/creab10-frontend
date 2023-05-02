@@ -1,6 +1,7 @@
 import * as React from "react";
-import axios from "axios";
+
 import { Link } from "react-router-dom";
+import api from "../shared/api";
 
 export default function RegisterPage() {
   const [firstName, setFirstName] = React.useState("");
@@ -12,7 +13,7 @@ export default function RegisterPage() {
     event.preventDefault();
 
     try {
-      const response = await axios.post("http://localhost:3000/auth/register", {
+      const response = await api.post("http://localhost:3000/auth/register", {
         firstName: firstName,
         lastName: lastName, 
         email: email,
@@ -22,6 +23,8 @@ export default function RegisterPage() {
     } catch (error) {
       console.error(error);
     }
+
+
   };
 
   return (
@@ -78,10 +81,11 @@ export default function RegisterPage() {
           </div>
 
           <div className="mt-8 flex flex-col gap-y-4">
-            <button
+            <button 
               type="submit"
               className="hover:bg-violet-700 hover:scale-[1.01] ease-in-out active:scale-[.95] transition-all py-3 rounded-xl bg-violet-500 text-white text-lg font-bold"
-            >
+              
+            > 
               Registrate
             </button>
             <div className="mt-8 flex justify-center items-center ">
