@@ -1,6 +1,8 @@
 import * as React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { login } from "../shared/login";
+import TextField from '@mui/material/TextField';
+
 
 export default function LoginPage() {
   const [email, setEmail] = React.useState("");
@@ -12,6 +14,7 @@ export default function LoginPage() {
     await login(email, password);
     navigate('/dashboard')
   };
+
 
   return (
 
@@ -27,29 +30,44 @@ export default function LoginPage() {
       <form onSubmit={handleLogin}>
       <div className="mt-8">
         <div>
-          <label className="text-lg font-medium" type="email">
-            Correo institucional
-          </label>
-          <input
-            className="w-full border-2 border-gray-100 rounded-xl p-4 mt-1 bg-transparent"
-            placeholder="Enter your email" 
-            name="email"
-            value={email}
-            onChange={(event) => setEmail(event.target.value)}
-          />
+        <TextField
+                margin="normal"
+                color="primary"
+                fullWidth
+                id="email"
+                label="Email"
+                name="email"
+                autoComplete="email"
+                value={email}
+                onChange={(event) => setEmail(event.target.value)}   
+                InputProps={{
+                  sx:{
+                    borderRadius: "12px",
+                  }
+                }}
+              />
         </div>
 
         <div>
-          <label className="text-lg font-medium">Contraseña</label>
-          <input
-            className="w-full border-2 border-gray-100 rounded-xl p-4 mt-1 bg-transparent"
-            type="password"
-            placeholder="Enter your password"
-            name="password"
-            value={password}
-            onChange={(event) => setPassword(event.target.value)}
-          />
+        <TextField
+                margin="normal"
+                fullWidth
+                id="password"
+                type="password"
+                label="Contraseña"
+                name="password"
+                autoComplete="current-password"
+                value={password}
+                onChange={(event) => setPassword(event.target.value)}
+                InputProps={{
+                  sx:{
+                    borderRadius: "12px",
+                  }
+                }}
+                
+              />
         </div>
+        
         <div className="mt-8 flex justify-between items-center">
           <div>
             <input type="checkbox" id="remember" />
