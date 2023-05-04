@@ -9,10 +9,7 @@ import Button from '@mui/material/Button';
 export default function RegisteredPage() {
 
 
-  const handleGoToLogin = () => {
-    const navigate = useNavigate()
-    navigate('/login')
-  }
+
   
   
 
@@ -25,13 +22,13 @@ export default function RegisteredPage() {
       <p className="font-medium text-lg text-center text-gray-500 mt-4">
         Ya puedes disfrutar de Crea B10.
       </p>
-      <form onSubmit={handleGoToLogin}>
+   
         <div className="mt-8">
           
 
           <div className="mt-8 flex flex-col gap-y-4">
     
-            <div className="mt-8 flex justify-center items-center ">
+            <div className="flex justify-center items-center ">
            <Link to="/login">
            <Button  sx={{
                 backgroundColor: "#8B5CF6",
@@ -57,7 +54,7 @@ export default function RegisteredPage() {
         </div>
           </div>
         </div>
-      </form>
+
     </div>
   );
 }
