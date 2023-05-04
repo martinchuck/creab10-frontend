@@ -2,6 +2,7 @@ import * as React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { login } from "../shared/login";
 import TextField from '@mui/material/TextField';
+import Button from '@mui/material/Button';
 
 
 export default function LoginPage() {
@@ -80,11 +81,36 @@ export default function LoginPage() {
           </button>
         </div>
         <div className="mt-8 flex flex-col gap-y-4">
-          <button type="submit" 
-          className="hover:bg-violet-700 hover:scale-[1.01] ease-in-out active:scale-[.95] transition-all py-3 rounded-xl bg-violet-500 text-white text-lg font-bold">
+          <Button type="submit" 
+              component={Link}
+              to={"/dashboard"}
+              type="submit"
+              sx={{
+                backgroundColor: "#8B5CF6",
+                color: "#fff",
+                borderRadius: "0.75rem",
+                padding: "0.75rem 0.75rem",
+                fontSize: "1.105rem",
+                fontWeight: "bold",
+                fontFamily: "applesystem, BlinkMacSystemFont, Segoe UI, Roboto",
+                textTransform: 'capitalize',
+                letterSpacing: 0.1,
+                "&:hover": {
+                  backgroundColor: "#4F46E5",
+                  transform: "scale(1.01)",
+                  transition: "all 0.2s ease-in-out",
+                },
+                "&:active": {
+                  transform: "scale(0.95)",
+                  transition: "all 0.2s ease-in-out",
+                },
+              }}
+            >
+              
+            
             {" "}
             Ingresar{" "}
-          </button>
+          </Button>
           <button className="flex rounded-xl py-3 border-2 border-gray-200 items-center justify-center gap-2 hover:scale-[1.01] ease-in-out active:scale-[.95] transition-all">
             <svg
               width="24"

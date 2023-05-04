@@ -1,9 +1,8 @@
 import * as React from "react";
-import { Link } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import api from "../shared/api";
-import TextField from '@mui/material/TextField';
-
-
+import TextField from "@mui/material/TextField";
+import { Button } from "@mui/material";
 
 export default function RegisterPage() {
   const [firstName, setFirstName] = React.useState("");
@@ -17,7 +16,7 @@ export default function RegisterPage() {
     try {
       const response = await api.post("http://localhost:3000/auth/register", {
         firstName: firstName,
-        lastName: lastName, 
+        lastName: lastName,
         email: email,
         password: password,
       });
@@ -25,14 +24,9 @@ export default function RegisterPage() {
     } catch (error) {
       console.error(error);
     }
-  }
-  
-  
+  };
 
   return (
-
-
-    
     <div className="bg-white px-10 py-20 rounded-3xl border-2 border-gray-200">
       <h1 className="text-5xl font-semibold">Registrate</h1>
       <p className="font-medium text-lg text-gray-500 mt-4">
@@ -41,93 +35,116 @@ export default function RegisterPage() {
       <form onSubmit={handleRegister}>
         <div className="mt-8">
           <div>
-           <TextField
+            <TextField
               margin="normal"
-                fullWidth
-                id="firstName"
-                label="Nombre"
-                name="firstName"
-                autoComplete="firstName"
-                value={firstName}
-                onChange={(event) => setFirstName(event.target.value)}
-                InputProps={ {
-                  sx: {
-                    borderRadius: "12px",
-                    width: "400px",
-                  }
-                }}
-           />
+              fullWidth
+              id="firstName"
+              label="Nombre"
+              name="firstName"
+              autoComplete="firstName"
+              value={firstName}
+              onChange={(event) => setFirstName(event.target.value)}
+              InputProps={{
+                sx: {
+                  borderRadius: "12px",
+                  width: "400px",
+                },
+              }}
+            />
           </div>
 
           <div>
-          <TextField
+            <TextField
               margin="normal"
-                fullWidth
-                id="lastName"
-                label="Apellido"
-                name="lastName"
-                autoComplete="lastName"
-                value={lastName}
-                onChange={(event) => setLastName(event.target.value)}
-                InputProps={ {
-                  sx: {
-                    borderRadius: "12px",
-                  }
-                }}
-           />
+              fullWidth
+              id="lastName"
+              label="Apellido"
+              name="lastName"
+              autoComplete="lastName"
+              value={lastName}
+              onChange={(event) => setLastName(event.target.value)}
+              InputProps={{
+                sx: {
+                  borderRadius: "12px",
+                },
+              }}
+            />
           </div>
 
           <div>
-          <TextField
+            <TextField
               margin="normal"
-                fullWidth
-                id="email"
-                label="Email"
-                name="email"
-                autoComplete="email"
-                value={email}
-                onChange={(event) => setEmail(event.target.value)}
-                InputProps={ {
-                  sx: {
-                    borderRadius: "12px",
-                  }
-                }}
-           />
+              fullWidth
+              id="email"
+              label="Email"
+              name="email"
+              autoComplete="email"
+              value={email}
+              onChange={(event) => setEmail(event.target.value)}
+              InputProps={{
+                sx: {
+                  borderRadius: "12px",
+                },
+              }}
+            />
           </div>
 
           <div>
-          <TextField
+            <TextField
               margin="normal"
-                fullWidth
-                type="password"
-                id="password"
-                label="Contraseña"
-                name="password"
-                autoComplete="password"
-                value={password}
-                onChange={(event) => setPassword(event.target.value)}
-                InputProps={ {
-                  sx: {
-                    borderRadius: "12px",
-                  }
-                }}
-           />
+              fullWidth
+              type="password"
+              id="password"
+              label="Contraseña"
+              name="password"
+              autoComplete="password"
+              value={password}
+              onChange={(event) => setPassword(event.target.value)}
+              InputProps={{
+                sx: {
+                  borderRadius: "12px",
+                },
+              }}
+            />
           </div>
-
           <div className="mt-8 flex flex-col gap-y-4">
-            <button 
+            <Button
+              component={Link}
+              to={"/registered"}
               type="submit"
-              className="hover:bg-violet-700 hover:scale-[1.01] ease-in-out active:scale-[.95] transition-all py-3 rounded-xl bg-violet-500 text-white text-lg font-bold"
-              
-            > 
+              className="bg-violet-500 hover:bg-violet-700 hover:scale-[1.01] active:scale-[.95] transition-all py-3 rounded-xl text-white text-lg font-bold"
+              sx={{
+                backgroundColor: "#8B5CF6",
+                color: "#fff",
+                borderRadius: "0.75rem",
+                padding: "0.75rem 0.75rem",
+                fontSize: "1.105rem",
+                fontWeight: "bold",
+                fontFamily: "applesystem, BlinkMacSystemFont, Segoe UI, Roboto",
+                textTransform: 'capitalize',
+                letterSpacing: 0.1,
+                "&:hover": {
+                  backgroundColor: "#4F46E5",
+                  transform: "scale(1.01)",
+                  transition: "all 0.2s ease-in-out",
+                },
+                "&:active": {
+                  transform: "scale(0.95)",
+                  transition: "all 0.2s ease-in-out",
+                },
+              }}
+            >
               Registrate
-            </button>
+            </Button>
+
             <div className="mt-8 flex justify-center items-center ">
-           <p className="font-medium text-base">¿Ya estas registrado?</p>
-           <Link to="/login">
-           <button  className="text-violet-500 text-base font-medium ml-2">Inicia Sesión</button>
-           </Link>
-        </div>
+              <p className="font-medium text-base">¿Ya estas registrado?</p>
+              <NavLink to="/login">
+                <button className="text-violet-500 text-base font-medium ml-2">
+                  Inicia Sesión
+                </button>
+              </NavLink>
+            </div>
           </div>
         </div>
       </form>

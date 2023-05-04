@@ -1,5 +1,5 @@
 import { MainPage } from "./components/MainPage";
-import SignInSide from "./components/SignInSide";
+import { MainRegisteredPage } from "./components/MainRegisteredPage";
 import { AppRouter } from "./router/AppRouter";
 
 function App() {
