@@ -37,7 +37,7 @@ export default function RegisterPage() {
           <div>
             <TextField
               margin="normal"
-              fullWidth
+              width="50%"
               id="firstName"
               label="Nombre"
               name="firstName"
@@ -47,16 +47,13 @@ export default function RegisterPage() {
               InputProps={{
                 sx: {
                   borderRadius: "12px",
-                  width: "400px",
+                  mr: 0.8,
                 },
               }}
             />
-          </div>
-
-          <div>
             <TextField
               margin="normal"
-              fullWidth
+              width="50%"
               id="lastName"
               label="Apellido"
               name="lastName"
@@ -66,10 +63,13 @@ export default function RegisterPage() {
               InputProps={{
                 sx: {
                   borderRadius: "12px",
+                  ml: 0.8,
                 },
               }}
             />
           </div>
+
+         
 
           <div>
             <TextField
