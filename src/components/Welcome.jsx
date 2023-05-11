@@ -7,8 +7,7 @@ import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
-import IconButton from "@mui/material/IconButton";
-import MenuIcon from "@mui/icons-material/Menu";
+import LogoutIcon from '@mui/icons-material/Logout';
 
 export const Welcome = () => {
   const token = getAuthToken();
@@ -37,6 +36,7 @@ export const Welcome = () => {
     logout();
   }}
               sx={{ fontWeight: "bold" }}
+              endIcon={<LogoutIcon />}
             >
               Cerrar sesión
             </Button>
