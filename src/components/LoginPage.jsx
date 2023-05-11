@@ -84,7 +84,6 @@ export default function LoginPage() {
           <Button type="submit" 
               component={Link}
               to={"/dashboard"}
-              type="submit"
               sx={{
                 backgroundColor: "#8B5CF6",
                 color: "#fff",
