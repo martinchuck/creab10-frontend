@@ -2,19 +2,19 @@ import * as React from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import api from "../shared/api";
 import TextField from "@mui/material/TextField";
-import { Button } from "@mui/material";
+import { Button, Typography } from "@mui/material";
 
 export default function RegisterPage() {
   const [firstName, setFirstName] = React.useState("");
   const [lastName, setLastName] = React.useState("");
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
+  const [showRegisterError, setShowRegisterError] = React.useState(false);
   const navigate = useNavigate();
 
   const handleRegister = async (event) => {
-    event.preventDefault();
-
     try {
+      event.preventDefault();
       const response = await api.post("http://localhost:3000/auth/register", {
         firstName: firstName,
         lastName: lastName,
@@ -24,7 +24,10 @@ export default function RegisterPage() {
       navigate("/registered");
       console.log(response.data);
     } catch (error) {
-      console.error(error);
+      console.log(error.response.data.message);
+      if (error.response.data.message === "Email already exists") {
+        setShowRegisterError(true);
+      }
     }
   };
 
@@ -107,6 +110,13 @@ export default function RegisterPage() {
               }}
             />
           </div>
+
+          {showRegisterError && (
+            <Typography className="text-red-600 text-sm mt-2">
+              Este email ya esta registrado.
+            </Typography>
+          )}
+
           <div className="mt-8 flex flex-col gap-y-4">
             <Button
               onClick={handleRegister}
