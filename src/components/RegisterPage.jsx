@@ -1,5 +1,5 @@
 import * as React from "react";
-import { NavLink, Link } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import api from "../shared/api";
 import TextField from "@mui/material/TextField";
 import { Button } from "@mui/material";
@@ -9,6 +9,7 @@ export default function RegisterPage() {
   const [lastName, setLastName] = React.useState("");
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
+  const navigate = useNavigate();
 
   const handleRegister = async (event) => {
     event.preventDefault();
@@ -20,6 +21,7 @@ export default function RegisterPage() {
         email: email,
         password: password,
       });
+      navigate("/registered");
       console.log(response.data);
     } catch (error) {
       console.error(error);
@@ -69,8 +71,6 @@ export default function RegisterPage() {
             />
           </div>
 
-         
-
           <div>
             <TextField
               margin="normal"
@@ -109,9 +109,7 @@ export default function RegisterPage() {
           </div>
           <div className="mt-8 flex flex-col gap-y-4">
             <Button
-              component={Link}
-              to={"/registered"}
-              type="submit"
+              onClick={handleRegister}
               className="bg-violet-500 hover:bg-violet-700 hover:scale-[1.01] active:scale-[.95] transition-all py-3 rounded-xl text-white text-lg font-bold"
               sx={{
                 backgroundColor: "#8B5CF6",
@@ -121,7 +119,7 @@ export default function RegisterPage() {
                 fontSize: "1.105rem",
                 fontWeight: "bold",
                 fontFamily: "applesystem, BlinkMacSystemFont, Segoe UI, Roboto",
-                textTransform: 'capitalize',
+                textTransform: "capitalize",
                 letterSpacing: 0.1,
                 "&:hover": {
                   backgroundColor: "#4F46E5",
