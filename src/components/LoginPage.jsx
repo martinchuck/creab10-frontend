@@ -9,20 +9,39 @@ export default function LoginPage() {
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
   const [showLoginError, setShowLoginError] = React.useState(false);
+  const [errorMessage, setErrorMessage] = React.useState("");
   const navigate = useNavigate();
-
+    
   const handleLogin = async (event) => {
     try {
       event.preventDefault();
       await login(email, password);
       navigate("/dashboard");
     } catch (error) {
-      console.log(error.response.data.message);
+      const typeError = (error.response.data.message);
+
+      const ERRORS = {
+        "password must be longer than or equal to 5 characters": "Email o contraseña incorrectos.",
+        "password should not be empty": "No puede haber campos vacios.",
+        "email should not be empty": "No puede haber campos vacios.",
+        "email must be an email": "Ingrese un Email valido.",
+      }
+      const errorMap = typeError.map(message => ERRORS[message]);
+      console.log(errorMap);
+      setShowLoginError(true);
+      setErrorMessage(errorMap);
+
+      /* console.log(error.response.data.message);
       if (error.response.data.message === "Invalid credentials") {
         setShowLoginError(true);
-      }
+        setErrorMessage("Email o contraseña incorrectos.");
+      } if (typeError.find(item => item === "password should not be empty")) {
+        setShowLoginError(true);
+        setErrorMessage("No puede haber campos vacios.");
+      } */
     }
   };
+
 
   return (
     <div className="bg-white px-10 py-20 rounded-3xl border-2 border-gray-200">
@@ -72,12 +91,14 @@ export default function LoginPage() {
               }}
             />
           </div>
-
-          {showLoginError && (
-            <Typography className="text-red-600 text-sm mt-2">
-              Nombre de usuario o contraseña incorrectos.
-            </Typography>
-          )}
+          
+        
+        {showLoginError &&  (
+          
+          <Typography  className="text-red-600 text-sm mt-2">
+          {errorMessage} 
+        </Typography>
+        )}
 
           <div className="mt-8 flex justify-between items-center">
             <div>
