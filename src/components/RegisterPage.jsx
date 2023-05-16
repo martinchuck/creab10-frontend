@@ -10,6 +10,7 @@ export default function RegisterPage() {
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
   const [showRegisterError, setShowRegisterError] = React.useState(false);
+  const [errorMessage, setErrorMessage] = React.useState("");
   const navigate = useNavigate();
 
   const handleRegister = async (event) => {
@@ -24,9 +25,27 @@ export default function RegisterPage() {
       navigate("/registered");
       console.log(response.data);
     } catch (error) {
-      console.log(error.response.data.message);
-      if (error.response.data.message === "Email already exists") {
+      const typeError = error.response.data.message;
+      const typeStatusError = error.response.status;
+      if (typeStatusError === 409 && typeError === "Email already exists") {
         setShowRegisterError(true);
+        setErrorMessage("Este email ya esta registrado.");
+        console.log(typeof typeError);
+      } else {
+        console.log(typeStatusError);
+        const ERRORS = {
+          "firstName should not be empty": "Debe ingresar un nombre.",
+          "lastName should not be empty": "Debe ingresar un apellido.",
+          "password must be longer than or equal to 5 characters":
+            "La contraseña debe tener mas de 5 caracteres.",
+          "password should not be empty": "Debe ingresar una contraseña.",
+          "email should not be empty": "Debe ingresar un Email.",
+          "email must be an email": "Ingrese un Email valido.",
+        };
+        const errorMap = typeError.map((message) => ERRORS[message]);
+        console.log(errorMap);
+        setShowRegisterError(true);
+        setErrorMessage(errorMap);
       }
     }
   };
@@ -112,8 +131,18 @@ export default function RegisterPage() {
           </div>
 
           {showRegisterError && (
-            <Typography className="text-red-600 text-sm mt-2">
-              Este email ya esta registrado.
+            <Typography
+              sx={{
+                color: "#EF4844",
+              }}
+            >
+              {Array.isArray(errorMessage) ? (
+                errorMessage.map((message, index) => (
+                  <div key={index}>{message}</div>
+                ))
+              ) : (
+                <div>{errorMessage}</div>
+              )}
             </Typography>
           )}
 

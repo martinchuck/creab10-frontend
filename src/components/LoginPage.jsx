@@ -19,22 +19,22 @@ export default function LoginPage() {
       navigate("/dashboard");
     } catch (error) {
       const typeError = error.response.data.message;
-
-      const ERRORS = {
-        "password must be longer than or equal to 5 characters":
-          "Email o contraseña incorrectos.",
-        "password should not be empty": "Debe ingresar una contraseña.",
-        "email should not be empty": "Debe ingresar un Email.",
-        "email must be an email": "Ingrese un Email valido.",
-      };
-      const errorMap = typeError.map((message) => ERRORS[message]);
-      console.log(errorMap);
-      setShowLoginError(true);
-      setErrorMessage(errorMap);
-
-      if (error.response.data.message === "Invalid credentials") {
+      const typeStatusError = error.response.status;
+      if (typeStatusError === 401 && typeError === "Invalid credentials") {
         setShowLoginError(true);
         setErrorMessage("Email o contraseña incorrectos.");
+      } else {
+        const ERRORS = {
+          "password must be longer than or equal to 5 characters":
+            "Email o contraseña incorrectos.",
+          "password should not be empty": "Debe ingresar una contraseña.",
+          "email should not be empty": "Debe ingresar un Email.",
+          "email must be an email": "Ingrese un Email valido.",
+        };
+        const errorMap = typeError.map((message) => ERRORS[message]);
+        console.log(errorMap);
+        setShowLoginError(true);
+        setErrorMessage(errorMap);
       }
     }
   };
@@ -94,9 +94,13 @@ export default function LoginPage() {
                 color: "#EF4844",
               }}
             >
-              {errorMessage.map((message, index) => (
-                <div key={index}>{message}</div>
-              ))}
+              {Array.isArray(errorMessage) ? (
+                errorMessage.map((message, index) => (
+                  <div key={index}>{message}</div>
+                ))
+              ) : (
+                <div>{errorMessage}</div>
+              )}
             </Typography>
           )}
 
