@@ -23,8 +23,8 @@ export default function LoginPage() {
       const ERRORS = {
         "password must be longer than or equal to 5 characters":
           "Email o contraseña incorrectos.",
-        "password should not be empty": "No puede haber campos vacios.",
-        "email should not be empty": "No puede haber campos vacios.",
+        "password should not be empty": "Debe ingresar una contraseña.",
+        "email should not be empty": "Debe ingresar un Email.",
         "email must be an email": "Ingrese un Email valido.",
       };
       const errorMap = typeError.map((message) => ERRORS[message]);
@@ -32,14 +32,10 @@ export default function LoginPage() {
       setShowLoginError(true);
       setErrorMessage(errorMap);
 
-      /* console.log(error.response.data.message);
       if (error.response.data.message === "Invalid credentials") {
         setShowLoginError(true);
         setErrorMessage("Email o contraseña incorrectos.");
-      } if (typeError.find(item => item === "password should not be empty")) {
-        setShowLoginError(true);
-        setErrorMessage("No puede haber campos vacios.");
-      } */
+      }
     }
   };
 
@@ -93,7 +89,11 @@ export default function LoginPage() {
           </div>
 
           {showLoginError && (
-            <Typography className="text-red-600 text-sm mt-2">
+            <Typography
+              sx={{
+                color: "#EF4844",
+              }}
+            >
               {errorMessage.map((message, index) => (
                 <div key={index}>{message}</div>
               ))}
