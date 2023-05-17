@@ -7,7 +7,8 @@ import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
-import LogoutIcon from '@mui/icons-material/Logout';
+import LogoutIcon from "@mui/icons-material/Logout";
+import { Card, CardActions, CardContent } from "@mui/material";
 
 export const Welcome = () => {
   const token = getAuthToken();
@@ -33,8 +34,8 @@ export const Welcome = () => {
             <Button
               color="inherit"
               onClick={async () => {
-    logout();
-  }}
+                logout();
+              }}
               sx={{ fontWeight: "bold" }}
               endIcon={<LogoutIcon />}
             >
@@ -43,7 +44,24 @@ export const Welcome = () => {
           </Toolbar>
         </AppBar>
       </Box>
-      <h1>Welcome</h1>
+
+      <Card sx={{ m: 10 ,minWidth: 40,
+      width: 250 }}>
+      <CardContent>
+        <Typography variant="h5" component="div">
+          Curso de Fotografía 
+        </Typography>
+        <Typography sx={{ mb: 1.5 }} color="text.secondary">
+          En proceso
+        </Typography>
+        <Typography variant="body2">
+        lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. 
+        </Typography>
+      </CardContent>
+      <CardActions>
+        <Button size="small">Editar</Button>
+      </CardActions>
+    </Card>
       <button
         onClick={async () => {
           const response = await api.get("/users");
@@ -53,13 +71,6 @@ export const Welcome = () => {
         Send request with token
       </button>
       <br />
-      <button
-        onClick={async () => {
-          logout();
-        }}
-      >
-        Logout
-      </button>
     </>
   );
 };
