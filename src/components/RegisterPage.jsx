@@ -1,5 +1,5 @@
 import * as React from "react";
-import { NavLink, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import api from "../shared/api";
 import TextField from "@mui/material/TextField";
 import { Button, Typography } from "@mui/material";
@@ -66,6 +66,7 @@ export default function RegisterPage() {
               label="Nombre"
               name="firstName"
               autoComplete="firstName"
+              autoFocus
               value={firstName}
               onChange={(event) => setFirstName(event.target.value)}
               InputProps={{
@@ -147,7 +148,7 @@ export default function RegisterPage() {
           )}
 
           <div className="mt-8 flex flex-col gap-y-4">
-            <Button
+            <Button type="submit"
               onClick={handleRegister}
               className="bg-violet-500 hover:bg-violet-700 hover:scale-[1.01] active:scale-[.95] transition-all py-3 rounded-xl text-white text-lg font-bold"
               sx={{
@@ -176,11 +177,11 @@ export default function RegisterPage() {
 
             <div className="mt-8 flex justify-center items-center ">
               <p className="font-medium text-base">¿Ya estas registrado?</p>
-              <NavLink to="/login">
+              <Link to="/login">
                 <button className="text-violet-500 text-base font-medium ml-2">
                   Inicia Sesión
                 </button>
-              </NavLink>
+              </Link>
             </div>
           </div>
         </div>
