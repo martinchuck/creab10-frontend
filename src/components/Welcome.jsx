@@ -8,7 +8,8 @@ import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import LogoutIcon from "@mui/icons-material/Logout";
-import { Card, CardActions, CardContent } from "@mui/material";
+import Card from "./Card";
+import { Container, Grid } from "@mui/material";
 
 export const Welcome = () => {
   const token = getAuthToken();
@@ -21,6 +22,7 @@ export const Welcome = () => {
   }, [token, navigate]);
   return (
     <>
+<Grid> 
       <Box sx={{ flexGrow: 1 }}>
         <AppBar position="static">
           <Toolbar>
@@ -44,8 +46,14 @@ export const Welcome = () => {
           </Toolbar>
         </AppBar>
       </Box>
-
-      
+      <Container>
+      <Grid container spacing={5}>
+      <Card />
+      <Card />
+      <Card />
+      <Card />
+        </Grid>
+      </Container>
 
 
       <button
@@ -57,6 +65,7 @@ export const Welcome = () => {
         Send request with token
       </button>
       <br />
+      </Grid>
     </>
   );
 };
