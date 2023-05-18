@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Link, useNavigate } from "react-router-dom";
-import api from "../shared/api";
+import api from "../../shared/api";
 import TextField from "@mui/material/TextField";
 import { Button, Typography } from "@mui/material";
 

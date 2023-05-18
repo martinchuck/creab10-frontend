@@ -1,10 +1,10 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
-import { MainPage } from '../components/MainPage';
+import { MainPage } from '../components/component-login/MainPage';
 import { Welcome } from '../components/Welcome';
 import { getAuthToken } from '../shared/login';
-import { MainPageRegister } from '../components/MainPageRegister';
-import { MainRegisteredPage } from '../components/MainRegisteredPage';
+import { MainPageRegister } from '../components/component-login/MainPageRegister';
+import { MainRegisteredPage } from '../components/component-login/MainRegisteredPage';
 
 
 export const AppRouter = () => {

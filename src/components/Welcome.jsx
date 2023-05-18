@@ -45,23 +45,9 @@ export const Welcome = () => {
         </AppBar>
       </Box>
 
-      <Card sx={{ m: 10 ,minWidth: 40,
-      width: 250 }}>
-      <CardContent>
-        <Typography variant="h5" component="div">
-          Curso de Fotografía 
-        </Typography>
-        <Typography sx={{ mb: 1.5 }} color="text.secondary">
-          En proceso
-        </Typography>
-        <Typography variant="body2">
-        lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. 
-        </Typography>
-      </CardContent>
-      <CardActions>
-        <Button size="small">Editar</Button>
-      </CardActions>
-    </Card>
+      
+
+
       <button
         onClick={async () => {
           const response = await api.get("/users");
