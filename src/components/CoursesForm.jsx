@@ -14,12 +14,12 @@ function CoursesForm({ createCourse }) {
   return (
     <form onSubmit={handleSubmit}>
       <Box
-        component="form"
         sx={{
           "& > :not(style)": { m: 1, width: "25ch" },
         }}
+        
       >
-        <FormControl>
+        
           <div>
             <TextField
               variant="outlined"
@@ -41,7 +41,7 @@ function CoursesForm({ createCourse }) {
           <Button type="submit" variant="contained" onClick={handleSubmit}>
             Crear curso
           </Button>
-        </FormControl>
+        
       </Box>
     </form>
   );

@@ -32,11 +32,15 @@ export const Welcome = () => {
     setCourses([
       ...courses,
       {
-        id: courses.length,
+        id: courses.length+1,
         name: course.courseName,
         description: course.description,
       },
     ]);
+  }
+  function deleteCourse(courseId){
+    setCourses( courses.filter((course) => course.id !== courseId))
+
   }
 
   return (
@@ -73,7 +77,7 @@ export const Welcome = () => {
             Send request with token
           </button> */}
           <CoursesForm createCourse={createCourse} />
-          <CoursesList courses={courses} />
+          <CoursesList courses={courses} deleteCourse={deleteCourse} />
         </Box>
         <Container>
           <Grid container spacing={5}></Grid>
