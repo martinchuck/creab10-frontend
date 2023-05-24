@@ -1,9 +1,12 @@
-import { Button, FormControl, Box, Input, TextField } from "@mui/material";
-import React, { useState } from "react";
+import { Button, Box, TextField } from "@mui/material";
+import React, { useState, useContext } from "react";
+import { CourseContext } from "../context/CourseContext";
 
-function CoursesForm({ createCourse }) {
+function CoursesForm() {
   const [courseName, setCourseName] = useState("");
   const [description, setDescription] = useState("");
+  const { createCourse } = useContext(CourseContext);
+ 
 
   const handleSubmit = (e) => {
     e.preventDefault();

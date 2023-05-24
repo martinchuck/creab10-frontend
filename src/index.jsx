@@ -5,6 +5,7 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { ThemeProvider, createTheme } from '@mui/material';
+import { CourseContextProvider } from './context/CourseContext';
 
 
 const theme = createTheme({
@@ -24,7 +25,9 @@ root.render(
   <React.StrictMode>
   <ThemeProvider theme={theme}>
   <BrowserRouter>
+  <CourseContextProvider>
     <App />
+  </CourseContextProvider>
   </BrowserRouter>
   </ThemeProvider>
   </React.StrictMode>

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { getAuthToken, useLogout } from "../shared/login";
 import AppBar from "@mui/material/AppBar";
@@ -10,7 +10,6 @@ import LogoutIcon from "@mui/icons-material/Logout";
 import { Container, Grid } from "@mui/material";
 import CoursesForm from "./CoursesForm";
 import CoursesList from "./CoursesList";
-import { courses as data } from "./courses";
 
 export const Welcome = () => {
   const token = getAuthToken();
@@ -22,26 +21,12 @@ export const Welcome = () => {
     }
   }, [token, navigate]);
 
-  const [courses, setCourses] = useState([]);
+ 
 
-  useEffect(() => {
-    setCourses(data);
-  }, []);
 
-  function createCourse(course) {
-    setCourses([
-      ...courses,
-      {
-        id: courses.length+1,
-        name: course.courseName,
-        description: course.description,
-      },
-    ]);
-  }
-  function deleteCourse(courseId){
-    setCourses( courses.filter((course) => course.id !== courseId))
 
-  }
+
+
 
   return (
     <>
@@ -76,8 +61,8 @@ export const Welcome = () => {
           >
             Send request with token
           </button> */}
-          <CoursesForm createCourse={createCourse} />
-          <CoursesList courses={courses} deleteCourse={deleteCourse} />
+          <CoursesForm />
+          <CoursesList />
         </Box>
         <Container>
           <Grid container spacing={5}></Grid>

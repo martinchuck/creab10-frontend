@@ -1,8 +1,10 @@
 import React from "react";
 import { Button, Typography } from "@mui/material";
+import { useContext } from "react";
+import { CourseContext } from "../context/CourseContext";
 
-function CoursesCard({ course, deleteCourse }) {
-  
+function CoursesCard({ course }) {
+  const { deleteCourse } = useContext(CourseContext);
 
   return (
     <li>
