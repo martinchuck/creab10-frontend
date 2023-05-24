@@ -30,7 +30,6 @@ export const Welcome = () => {
 
   return (
     <>
-      <Grid>
         <Box sx={{ flexGrow: 1 }}>
           <AppBar position="static">
             <Toolbar>
@@ -61,15 +60,11 @@ export const Welcome = () => {
           >
             Send request with token
           </button> */}
+          <Container>
           <CoursesForm />
           <CoursesList />
+          </Container>
         </Box>
-        <Container>
-          <Grid container spacing={5}></Grid>
-        </Container>
-
-        <br />
-      </Grid>
     </>
   );
 };
