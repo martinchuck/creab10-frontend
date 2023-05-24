@@ -10,6 +10,7 @@ import LogoutIcon from "@mui/icons-material/Logout";
 import { Container, Grid } from "@mui/material";
 import CoursesForm from "./CoursesForm";
 import CoursesList from "./CoursesList";
+import EmptyCard from "./EmptyCard";
 
 export const Welcome = () => {
   const token = getAuthToken();
@@ -62,6 +63,17 @@ export const Welcome = () => {
           </button> */}
           <Container>
           <CoursesForm />
+          <Box
+        sx={{
+          display: "flex",
+          justifyContent: "center",
+          p: 1,
+          m: 1,
+          flexGrow: 1,
+        }}
+      >
+          <EmptyCard />
+          </Box>
           <CoursesList />
           </Container>
         </Box>

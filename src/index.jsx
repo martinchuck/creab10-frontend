@@ -18,6 +18,7 @@ const theme = createTheme({
       main: '#f50057',
     },
   },
+  
 })
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
