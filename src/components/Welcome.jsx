@@ -65,10 +65,11 @@ export const Welcome = () => {
         </Box>
           <CoursesForm />
           <EmptyCard />
-          <Grid container spacing={2} sx={{
+          <Grid container  sx={{
             display: "flex",
             flexDirection: "row",
             justifyContent: "center",
+            
           }}>
           
           <CoursesList />
