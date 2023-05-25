@@ -8,11 +8,9 @@ function CoursesList() {
   const { courses } = useContext(CourseContext);
   return (
     <>
-      <ul>
         {courses.map((course) => (
           <CoursesCard key={course.id} course={course} />
         ))}
-      </ul>
     </>
   );
 }

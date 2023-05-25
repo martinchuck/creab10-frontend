@@ -61,22 +61,20 @@ export const Welcome = () => {
           >
             Send request with token
           </button> */}
-          <Container>
-          <CoursesForm />
-          <Box
-        sx={{
-          display: "flex",
-          justifyContent: "center",
-          p: 1,
-          m: 1,
-          flexGrow: 1,
-        }}
-      >
-          <EmptyCard />
-          </Box>
-          <CoursesList />
-          </Container>
+          
         </Box>
+          <CoursesForm />
+          <EmptyCard />
+          <Grid container spacing={2} sx={{
+            display: "flex",
+            flexDirection: "row",
+            justifyContent: "center",
+          }}>
+          
+          <CoursesList />
+          </Grid>
+          
+          
     </>
   );
 };

@@ -8,12 +8,11 @@ function CoursesCard({ course }) {
   const { deleteCourse } = useContext(CourseContext);
 
   return (
-    <Grid container spacing={4} >
-          <Grid item xs={6} sm={6} md={4} lg={3} xl={2}
-           >
+    <Grid item md={2} >
          <Card sx={{ 
-          minWidth: 275,
-         m: 1, }}>
+         m: 1,
+         maxWidth: 250,
+          }}>
       <CardContent>
         <Typography variant="h4" component="div">
         {course.name}
@@ -26,11 +25,7 @@ function CoursesCard({ course }) {
       <Button  size="small" variant="contained" color="secondary" onClick={() => deleteCourse(course.id)} >Eliminar</Button>
       </CardActions>
     </Card>
-          </Grid>
-        </Grid>
-
-
-    
+    </Grid>
   );
 }
 
