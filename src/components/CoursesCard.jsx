@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, CardActions, IconButton, Typography } from "@mui/material";
+import { Button, CardActions, CardHeader, IconButton, Paper, Typography } from "@mui/material";
 import { useContext } from "react";
 import { CourseContext } from "../context/CourseContext";
 import { Card, CardContent, CardActionArea, Grid } from "@mui/material";
@@ -10,23 +10,31 @@ function CoursesCard({ course }) {
 
   return (
     <Grid item md={2} >
-         <Card sx={{ 
+         <Paper elevation={8} sx={{ 
          maxWidth: 250,
+         minHeight: 250,
+         maxHeight: 250,
+         borderRadius: 2,
           }}>
-      <CardContent>
-        <Typography gutterBottom variant="h5" component="h2">
+    <CardActionArea>
+    <CardHeader title={
+              <Typography gutterBottom variant="h5" component="h2">
         {course.name}
         </Typography>
-        <Typography variant="body2" color="#757575" component="p" overflow="hidden">
+    }
+    subheader={
+      <Typography variant="body2" color="#757575" component="p" >
         {course.description}
         </Typography>
-      </CardContent>
-      <CardActions disableSpacing>
+    }
+    action={
       <IconButton aria-label="delete" onClick={() => deleteCourse(course.id)}>
           <DeleteIcon />
         </IconButton> 
-      </CardActions>
-    </Card>
+    }>
+    </CardHeader>
+    </CardActionArea>
+    </Paper>
     </Grid>
   );
 }
