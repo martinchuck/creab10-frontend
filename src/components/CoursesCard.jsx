@@ -17,11 +17,19 @@ function CoursesCard({ course }) {
     xl={2}
      >
          <Paper elevation={8} sx={{ 
-         maxWidth: 250,
+         maxWidth: 260,
          overflow: 'hidden',
          minHeight: 250,
          maxHeight: 250,
          borderRadius: 2,
+         ml: 3,
+         mr: 3,
+          mb: 2,
+          mt: 2,
+          ":hover": {
+            boxShadow: 20,
+            cursor: "pointer",
+          },
           }}>
     <CardActionArea>
     <CardHeader  title={
