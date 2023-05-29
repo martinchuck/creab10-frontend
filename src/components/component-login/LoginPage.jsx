@@ -40,7 +40,7 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="bg-white px-10 py-20 rounded-3xl border-2 border-gray-200">
+    <div className="bg-white px-10 py-16 rounded-3xl border-2 border-gray-200">
       <h1 className="text-5xl font-semibold font-semibold">Crea B10</h1>
       <p
         className="font-medium text-lg

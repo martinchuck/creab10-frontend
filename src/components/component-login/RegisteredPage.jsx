@@ -16,7 +16,7 @@ export default function RegisteredPage() {
 
 
     
-    <div className="bg-white px-10 py-20 rounded-3xl border-2 border-gray-200">
+    <div className="bg-white px-4 py-16 rounded-3xl border-2 border-gray-200">
       <h1 className="text-5xl font-semibold">Tu cuenta se ha creado con exito</h1>
       <p className="font-medium text-lg text-center text-gray-500 mt-4">
         Ya puedes disfrutar de Crea B10.

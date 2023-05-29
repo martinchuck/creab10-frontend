@@ -35,9 +35,9 @@ export const Welcome = () => {
           <AppBar position="static">
             <Toolbar>
               <Typography
-                variant="h6"
+                variant="h5"
                 component="div"
-                sx={{ flexGrow: 1, fontWeight: "bold" }}
+                sx={{ flexGrow: 1, fontWeight: "bold",   }}
               >
                 Crea B10
               </Typography>
@@ -63,13 +63,12 @@ export const Welcome = () => {
           </button> */}
           
         </Box>
-        
-          
           
           <Grid container  spacing={2} sx={{
             display: "flex",
             flexDirection: "row",
             justifyContent: "center",
+          
             
           }}>
           <CoursesList />

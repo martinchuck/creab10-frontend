@@ -13,8 +13,7 @@ function CoursesCard({ course }) {
     xs={12}
     sm={6}
     md={4}
-    lg={3}
-    xl={2}
+
      >
          <Paper elevation={8} sx={{ 
          maxWidth: 260,
