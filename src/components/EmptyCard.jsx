@@ -6,13 +6,14 @@ import { Button, DialogActions, DialogContent, DialogContentText, DialogTitle, T
 import { useState, useContext } from "react";
 import { CourseContext } from "../context/CourseContext";
 
-const [courseName, setCourseName] = useState("");
-const [description, setDescription] = useState("");
-const { createCourse } = useContext(CourseContext);
+
 
 
 function EmptyCard() {
   const [open, setOpen] = React.useState(false);
+  const [courseName, setCourseName] = useState("");
+  const [description, setDescription] = useState("");
+  const { createCourse } = useContext(CourseContext);
 
   const handleClickOpen = () => {
     setOpen(true);
