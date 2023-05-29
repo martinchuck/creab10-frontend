@@ -1,10 +1,12 @@
 import React from "react";
-import { Paper, CardActionArea, CardContent, IconButton, Dialog } from "@mui/material";
+import { Paper,  CardContent, IconButton, Dialog, Typography, InputLabel, Select, MenuItem } from "@mui/material";
 import AddCircleIcon from "@mui/icons-material/AddCircle";
 import { Grid } from "@mui/material";
 import { Button, DialogActions, DialogContent, DialogContentText, DialogTitle, TextField } from "@mui/material";
 import { useState, useContext } from "react";
 import { CourseContext } from "../context/CourseContext";
+import styled from "styled-components";
+
 
 
 
@@ -13,6 +15,7 @@ function EmptyCard() {
   const [open, setOpen] = React.useState(false);
   const [courseName, setCourseName] = useState("");
   const [description, setDescription] = useState("");
+  const [stateCourse, setStateCourse] = useState("");
   const { createCourse } = useContext(CourseContext);
 
   const handleClickOpen = () => {
@@ -30,7 +33,10 @@ function EmptyCard() {
     setOpen(false);
   };
   return (
-    <Grid item xs={12} sm={6} md={4} lg={3} xl={2}>
+    <Grid item   xs={12}
+    sm={6}
+    md={4}
+    lg={3} xl={2}>
   
         <Paper
           elevation={8}
@@ -38,13 +44,12 @@ function EmptyCard() {
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
-            maxWidth: 260,
+            maxWidth: "15rem",
+            height: "15rem",
             overflow: "hidden",
-            minHeight: 250,
-            maxHeight: 250,
             borderRadius: 2,
-            ml: 3,
-            mr: 3,
+            ml: 1,
+            mr: 1,
             mb: 2,
             mt: 2,
             ":hover": {
@@ -98,6 +103,12 @@ function EmptyCard() {
             onChange={(e) => setDescription(e.target.value)}
             value={description}
           />
+          <InputLabel id="course-status" htmlFor="course-status">Estado del curso</InputLabel>
+          <Select labelId="course-status" id="course-status-select" label="Estado del curso">
+            <MenuItem value="en progreso">En progreso</MenuItem>
+            <MenuItem value="terminado">Terminado</MenuItem>
+          </Select>
+          
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose}>Cancelar</Button>

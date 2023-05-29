@@ -1,8 +1,8 @@
 import React from "react";
-import { Button, CardActions, CardHeader, IconButton, Paper, Typography } from "@mui/material";
+import {  CardContent, CardHeader, IconButton, Paper, Typography } from "@mui/material";
 import { useContext } from "react";
 import { CourseContext } from "../context/CourseContext";
-import { Card, CardContent, CardActionArea, Grid } from "@mui/material";
+import {  CardActionArea, Grid } from "@mui/material";
 import DeleteIcon from '@mui/icons-material/Delete';
 
 function CoursesCard({ course }) {
@@ -13,16 +13,16 @@ function CoursesCard({ course }) {
     xs={12}
     sm={6}
     md={4}
+    lg={3} xl={2}
 
      >
          <Paper elevation={8} sx={{ 
-         maxWidth: 260,
+         maxWidth: "15rem",
+         height: "15rem",
          overflow: 'hidden',
-         minHeight: 250,
-         maxHeight: 250,
          borderRadius: 2,
-         ml: 3,
-         mr: 3,
+         ml: 1,
+         mr: 1,
           mb: 2,
           mt: 2,
           ":hover": {
@@ -32,7 +32,7 @@ function CoursesCard({ course }) {
           }}>
     <CardActionArea>
     <CardHeader  title={
-              <Typography gutterBottom variant="h5" component="h2">
+              <Typography gutterBottom variant="h6" component="h2" fontWeight="bold">
         {course.name}
         </Typography>
     }
@@ -41,12 +41,40 @@ function CoursesCard({ course }) {
         {course.description}
         </Typography>
     }
+
     action={
       <IconButton aria-label="delete" onClick={() => deleteCourse(course.id)}>
           <DeleteIcon />
         </IconButton> 
     }>
     </CardHeader>
+    <CardContent>
+   <Typography variant="span" color="initial" sx={{
+            fontFamily: "Plus Jakarta Sans, sans-serif",
+            fontWeight: "700",
+            fontSize: "0.775rem",
+            backgroundColor: "#54D62C29",
+            color: "#229A16",
+            padding: "0.35rem 0.6rem",
+            borderRadius: "6px",
+          }}
+          >
+            Finalizado
+          </Typography>
+           <br/>
+          <Typography variant="span" color="initial" sx={{
+            fontFamily: "Plus Jakarta Sans, sans-serif",
+            fontWeight: "700",
+            fontSize: "0.775rem",
+            backgroundColor: "#FF484229",
+            color: "#B72136",
+            padding: "0.35rem 0.6rem",
+            borderRadius: "6px",
+          }}
+          >
+            Sin empezar
+          </Typography>
+   </CardContent>
     </CardActionArea>
     </Paper>
     </Grid>

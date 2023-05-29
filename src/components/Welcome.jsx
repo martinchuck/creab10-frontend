@@ -63,8 +63,18 @@ export const Welcome = () => {
           </button> */}
           
         </Box>
-          
-          <Grid container  spacing={2} sx={{
+          <Typography variant="span" color="initial" sx={{
+            fontFamily: "Plus Jakarta Sans, sans-serif",
+            fontWeight: "700",
+            backgroundColor: "#54D62C29",
+            color: "#229A16",
+            padding: "0rem 0.3rem",
+            borderRadius: "0.5rem",
+          }}
+          >
+            📚Cursos B10
+          </Typography>
+          <Grid container  spacing={1} sx={{
             display: "flex",
             flexDirection: "row",
             justifyContent: "center",

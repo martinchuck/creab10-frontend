@@ -13,6 +13,7 @@ export function CourseContextProvider(props) {
         id: courses.length + 1,
         name: course.courseName,
         description: course.description,
+        state: course.state,
       },
     ]);
   }
