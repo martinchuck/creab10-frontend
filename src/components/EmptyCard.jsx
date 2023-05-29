@@ -31,7 +31,6 @@ function EmptyCard() {
   };
   return (
     <Grid item xs={12} sm={6} md={4} lg={3} xl={2}>
-      <CardActionArea>
         <Paper
           elevation={8}
           sx={{
@@ -48,14 +47,20 @@ function EmptyCard() {
             mb: 2,
             mt: 2,
             ":hover": {
-              boxShadow: 20,
-              cursor: "pointer",
-            },
+            boxShadow: 20,
+            cursor: "pointer",
+          },
+            
           }}
         >
+
           <CardContent>
-          <IconButton aria-label="add" onClick={handleClickOpen}>
-            <AddCircleIcon fontSize="large" />
+          <IconButton aria-label="add" onClick={handleClickOpen} >
+            <AddCircleIcon sx={
+              {
+                fontSize: 80,
+              }
+            } />
           </IconButton>
           </CardContent>
           <Dialog open={open} onClose={handleClose}>
@@ -67,12 +72,13 @@ function EmptyCard() {
             Ingresa la información del curso que deseas crear. <br />
             Puedes utilizar emojis o emoticones para que sea más divertido 😎
           </DialogContentText>
-          <TextField
+          <TextField 
             autoFocus
             margin="dense"
             id="course-name"
             label="Titulo del curso"
             type="text"
+            placeholder="Ingresa aquí el nombre del curso"
             fullWidth
             variant="standard"
             onChange={(e) => setCourseName(e.target.value)}
@@ -97,8 +103,8 @@ function EmptyCard() {
           <Button variant="contained" onClick={handleSubmit}>Crear</Button>
         </DialogActions>
       </Dialog>
+     
         </Paper>
-      </CardActionArea>
     </Grid>
   );
 }
