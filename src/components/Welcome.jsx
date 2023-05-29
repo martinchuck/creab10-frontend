@@ -64,7 +64,6 @@ export const Welcome = () => {
           
         </Box>
         
-          <CoursesForm />
           
           
           <Grid container  spacing={2} sx={{

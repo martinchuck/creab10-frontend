@@ -31,6 +31,7 @@ function EmptyCard() {
   };
   return (
     <Grid item xs={12} sm={6} md={4} lg={3} xl={2}>
+  
         <Paper
           elevation={8}
           sx={{
@@ -48,13 +49,13 @@ function EmptyCard() {
             mt: 2,
             ":hover": {
             boxShadow: 20,
-            cursor: "pointer",
+            
           },
             
           }}
         >
 
-          <CardContent>
+          <CardContent >
           <IconButton aria-label="add" onClick={handleClickOpen} >
             <AddCircleIcon sx={
               {
@@ -107,6 +108,7 @@ function EmptyCard() {
         </Paper>
     </Grid>
   );
+        
 }
 
 export default EmptyCard;
