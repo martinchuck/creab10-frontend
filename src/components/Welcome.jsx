@@ -11,6 +11,7 @@ import { Container, Grid } from "@mui/material";
 import CoursesForm from "./CoursesForm";
 import CoursesList from "./CoursesList";
 import EmptyCard from "./EmptyCard";
+import { createTheme, ThemeProvider } from '@mui/material';
 
 export const Welcome = () => {
   const token = getAuthToken();
@@ -22,14 +23,15 @@ export const Welcome = () => {
     }
   }, [token, navigate]);
 
- 
 
+   
 
 
 
 
 
   return (
+    
     <>
         <Box sx={{ flexGrow: 1 }}>
           <AppBar position="static">
@@ -63,17 +65,16 @@ export const Welcome = () => {
           </button> */}
           
         </Box>
-          <Typography variant="span" color="initial" sx={{
-            fontFamily: "Plus Jakarta Sans, sans-serif",
+        <Box m={1} mx={2}>
+          <Typography variant="h1" color="initial" sx={{
             fontWeight: "700",
-            backgroundColor: "#54D62C29",
-            color: "#229A16",
-            padding: "0rem 0.3rem",
-            borderRadius: "0.5rem",
+            fontSize: "2rem",
+            
           }}
           >
             📚Cursos B10
           </Typography>
+          </Box>
           <Grid container  spacing={1} sx={{
             display: "flex",
             flexDirection: "row",
@@ -87,5 +88,6 @@ export const Welcome = () => {
           
           
     </>
+    
   );
 };

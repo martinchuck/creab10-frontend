@@ -66,7 +66,6 @@ function CoursesCard({ course }) {
             <Chip
               label={course.state}
               sx={{
-                fontFamily: "Plus Jakarta Sans, sans-serif",
                 fontWeight: "700",
                 fontSize: "0.775rem",
                 backgroundColor: "#FF484229",
@@ -80,7 +79,6 @@ function CoursesCard({ course }) {
             <Chip
               label={course.state}
               sx={{
-                fontFamily: "Plus Jakarta Sans, sans-serif",
                 fontWeight: "700",
                 fontSize: "0.775rem",
                 backgroundColor: "#ffd70085",
@@ -96,7 +94,6 @@ function CoursesCard({ course }) {
             <Chip
               label={course.state}
               sx={{
-                fontFamily: "Plus Jakarta Sans, sans-serif",
                 fontWeight: "700",
                 fontSize: "0.775rem",
                 backgroundColor: "#e71be150",
@@ -110,8 +107,7 @@ function CoursesCard({ course }) {
           {course.state === "Terminado" && (
             <Chip
               label={course.state}
-              sx={{
-                fontFamily: "Plus Jakarta Sans, sans-serif",
+              sx={{      
                 fontWeight: "700",
                 fontSize: "0.775rem",
                 backgroundColor: "#54D62C29",

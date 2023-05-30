@@ -18,8 +18,12 @@ const theme = createTheme({
       main: '#f50057',
     },
   },
-  
-})
+  typography: {
+    fontFamily: [
+       'Poppins', "sans-serif",
+    ].join(','),
+  },});
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
