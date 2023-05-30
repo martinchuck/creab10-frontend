@@ -42,13 +42,13 @@ function CoursesCard({ course }) {
               variant="h6"
               component="h2"
               fontWeight="bold"
-              lineHeight="1.1"
+              lineHeight="1"
             >
               {course.name}
             </Typography>
           }
           subheader={
-            <Typography variant="body2" color="#757575" component="p">
+            <Typography variant="caption" lineHeight="1." color="#757575" component="p">
               {course.description}
             </Typography>
           }

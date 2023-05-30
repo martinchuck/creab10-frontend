@@ -12,6 +12,7 @@ import {
   Chip,
   ToggleButton,
   ToggleButtonGroup,
+  Box,
 } from "@mui/material";
 import AddCircleIcon from "@mui/icons-material/AddCircle";
 import { Grid } from "@mui/material";
@@ -32,6 +33,7 @@ import FormControl from '@mui/material/FormControl';
 import FormLabel from '@mui/material/FormLabel';
 import MuiToggleButton from '@mui/material/ToggleButton';
 import { styled, createTheme, ThemeProvider } from '@mui/material/styles';
+import { maxLength } from "class-validator";
 
 
 
@@ -83,6 +85,9 @@ function EmptyCard() {
         }}
       >
         <CardContent>
+        <Typography variant="body1" color="gray" fontWeight="bold">
+          Nuevo curso
+        </Typography>
           <IconButton aria-label="add" onClick={handleClickOpen}>
             <AddCircleIcon
               sx={{
@@ -126,6 +131,10 @@ function EmptyCard() {
               multiline
               rows={4}
               variant="standard"
+              helperText="Maximo 50 caracteres"
+              inputProps={{
+                maxLength: 50
+              }}
               onChange={(e) => setDescription(e.target.value)}
               value={description}
             />
@@ -143,15 +152,21 @@ function EmptyCard() {
               <MenuItem value="Terminado">Terminado</MenuItem>
 
             </Select> */}
-           
-            <ToggleButtonGroup
+            <Box my={1} >
+            <Typography variant="standard" color="gray"  >
+              Estado del curso:
+    </Typography>
+    </Box>
+    <br/>
+            <ToggleButtonGroup size="small"
       label="Estado del curso"
+      fontSize="small"
       value={stateCourse}
       exclusive
       onChange={(e) => setStateCourse(e.target.value)}
       aria-label="Platform"
     >
-    
+
       <ToggleButton value="Sin Empezar" sx={{
         ":hover":{
                 backgroundColor: "#FF484229",
