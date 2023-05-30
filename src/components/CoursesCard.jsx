@@ -42,6 +42,7 @@ function CoursesCard({ course }) {
               variant="h6"
               component="h2"
               fontWeight="bold"
+              lineHeight="1.1"
             >
               {course.name}
             </Typography>
@@ -60,37 +61,8 @@ function CoursesCard({ course }) {
             </IconButton>
           }
         ></CardHeader>
-        <CardContent></CardContent>
-        <CardActions>
-          {course.state === "En Proceso" && (
-            <Chip
-              label={course.state}
-              sx={{
-                fontFamily: "Plus Jakarta Sans, sans-serif",
-                fontWeight: "700",
-                fontSize: "0.775rem",
-                backgroundColor: "#fca311",
-                color: "#e5e5e5",
-                padding: "0.35rem 0.6rem",
-                borderRadius: "6px",
-              }}
-            />
-          )}
-          {course.state === "Terminado" && (
-            <Chip
-              label={course.state}
-              sx={{
-                fontFamily: "Plus Jakarta Sans, sans-serif",
-                fontWeight: "700",
-                fontSize: "0.775rem",
-                backgroundColor: "#54D62C29",
-                color: "#229A16",
-                padding: "0.35rem 0.6rem",
-                borderRadius: "6px",
-              }}
-            />
-          )}
-          {course.state === "Sin Empezar" && (
+        <CardActions >
+        {course.state === "Sin Empezar" && (
             <Chip
               label={course.state}
               sx={{
@@ -104,36 +76,54 @@ function CoursesCard({ course }) {
               }}
             />
           )}
-          <Typography
-            variant="span"
-            sx={{
-              fontFamily: "Plus Jakarta Sans, sans-serif",
-              fontWeight: "700",
-              fontSize: "0.775rem",
-              backgroundColor: "#54D62C29",
-              color: "#229A16",
-              padding: "0.35rem 0.6rem",
-              borderRadius: "6px",
-            }}
-          >
-            Finalizado
-          </Typography>
-          <br />
-          <Typography
-            variant="span"
-            color="initial"
-            sx={{
-              fontFamily: "Plus Jakarta Sans, sans-serif",
-              fontWeight: "700",
-              fontSize: "0.775rem",
-              backgroundColor: "#FF484229",
-              color: "#B72136",
-              padding: "0.35rem 0.6rem",
-              borderRadius: "6px",
-            }}
-          >
-            Sin empezar
-          </Typography>
+          {course.state === "En Proceso" && (
+            <Chip
+              label={course.state}
+              sx={{
+                fontFamily: "Plus Jakarta Sans, sans-serif",
+                fontWeight: "700",
+                fontSize: "0.775rem",
+                backgroundColor: "#ffd70085",
+                color: "#998200",
+                padding: "0.35rem 0.6rem",
+                borderRadius: "6px",
+              }}
+            />
+          )}
+          
+          
+          {course.state === "Para Revisión" && (
+            <Chip
+              label={course.state}
+              sx={{
+                fontFamily: "Plus Jakarta Sans, sans-serif",
+                fontWeight: "700",
+                fontSize: "0.775rem",
+                backgroundColor: "#e71be150",
+                color: "#9c0098",
+                padding: "0.35rem 0.6rem",
+                borderRadius: "6px",
+              }}
+            />
+          )}
+
+          {course.state === "Terminado" && (
+            <Chip
+              label={course.state}
+              sx={{
+                fontFamily: "Plus Jakarta Sans, sans-serif",
+                fontWeight: "700",
+                fontSize: "0.775rem",
+                backgroundColor: "#54D62C29",
+                color: "#229A16",
+                padding: "0.35rem 0.6rem",
+                borderRadius: "6px",
+                overflow: "hidden",
+              }}
+            />
+          )}
+
+          
         </CardActions>
       </Paper>
     </Grid>

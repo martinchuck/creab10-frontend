@@ -9,6 +9,9 @@ import {
   Select,
   MenuItem,
   Card,
+  Chip,
+  ToggleButton,
+  ToggleButtonGroup,
 } from "@mui/material";
 import AddCircleIcon from "@mui/icons-material/AddCircle";
 import { Grid } from "@mui/material";
@@ -22,6 +25,15 @@ import {
 } from "@mui/material";
 import { useState, useContext } from "react";
 import { CourseContext } from "../context/CourseContext";
+import Radio from '@mui/material/Radio';
+import RadioGroup from '@mui/material/RadioGroup';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import FormControl from '@mui/material/FormControl';
+import FormLabel from '@mui/material/FormLabel';
+import MuiToggleButton from '@mui/material/ToggleButton';
+import { styled, createTheme, ThemeProvider } from '@mui/material/styles';
+
+
 
 function EmptyCard() {
   const [open, setOpen] = React.useState(false);
@@ -29,6 +41,10 @@ function EmptyCard() {
   const [description, setDescription] = useState("");
   const { createCourse } = useContext(CourseContext);
   const [stateCourse, setStateCourse] = useState("En Proceso");
+
+  const handleChangeToggle = (event, newAlignment) => {
+    setAlignment(newAlignment);
+  };
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -113,7 +129,7 @@ function EmptyCard() {
               onChange={(e) => setDescription(e.target.value)}
               value={description}
             />
-            <InputLabel id="state-course-label">Age</InputLabel>
+            {/* <InputLabel id="state-course-label">Estado del curso</InputLabel>
             <Select
               labelId="state-course-label"
               id="state-course"
@@ -121,10 +137,70 @@ function EmptyCard() {
               label="Estado del curso"
               onChange={(e) => setStateCourse(e.target.value)}
             >
-              <MenuItem value="Sin Empezar">Sin Empezar</MenuItem>
+              <MenuItem  value="Sin Empezar">Sin Empezar</MenuItem>
               <MenuItem value="En Proceso">En Proceso</MenuItem>
+              <MenuItem value="Para Revisión">Para Revisión</MenuItem>
               <MenuItem value="Terminado">Terminado</MenuItem>
-            </Select>
+
+            </Select> */}
+           
+            <ToggleButtonGroup
+      label="Estado del curso"
+      value={stateCourse}
+      exclusive
+      onChange={(e) => setStateCourse(e.target.value)}
+      aria-label="Platform"
+    >
+    
+      <ToggleButton value="Sin Empezar" sx={{
+        ":hover":{
+                backgroundColor: "#FF484229",
+                color: "#B72136",
+        },
+        '&.Mui-selected, &.Mui-selected:hover':{
+                fontWeight: "700",
+                backgroundColor: "#FF484229",
+                color: "#B72136",
+        }
+      }}>Sin Empezar</ToggleButton>
+      <ToggleButton value="En Proceso" sx={{
+        ":hover":{
+                backgroundColor: "#ffd70085",
+                color: "#998200",
+        },
+        '&.Mui-selected, &.Mui-selected:hover':{
+                fontWeight: "700",
+                backgroundColor: "#ffd70085",
+                color: "#998200",
+        }
+      }}>En Proceso</ToggleButton>
+      <ToggleButton value="Para Revisión" sx={{
+        ":hover":{
+                backgroundColor: "#e71be150",
+                color: "#9c0098",
+        },
+        '&.Mui-selected, &.Mui-selected:hover':{
+                fontWeight: "700",
+                backgroundColor: "#e71be150",
+                color: "#9c0098",
+        }
+      }}>Para Revisión</ToggleButton>
+      <ToggleButton value="Terminado" sx={{
+        ":hover":{
+                fontWeight: "700",
+                backgroundColor: "#54D62C29",
+                color: "#229A16",
+            
+        },
+        '&.Mui-selected, &.Mui-selected:hover':{
+                fontWeight: "700",
+                backgroundColor: "#54D62C29",
+                color: "#229A16",
+           
+        }
+      }}>Terminado</ToggleButton>
+    </ToggleButtonGroup>
+
           </DialogContent>
           <DialogActions>
             <Button onClick={handleClose}>Cancelar</Button>
