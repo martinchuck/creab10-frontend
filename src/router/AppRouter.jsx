@@ -5,6 +5,7 @@ import { Welcome } from '../components/Welcome';
 import { getAuthToken } from '../shared/login';
 import { MainPageRegister } from '../components/component-login/MainPageRegister';
 import { MainRegisteredPage } from '../components/component-login/MainRegisteredPage';
+import Course from '../components/Course';
 
 
 export const AppRouter = () => {
@@ -19,6 +20,7 @@ return (
         <Route path="/register" element={<MainPageRegister />} />
         <Route path="/registered" element={<MainRegisteredPage />} />
         <Route path="/dashboard" element={<Welcome />}/>
+        <Route path="/course" element={<Course />}/>
 
     </Routes>
     </>

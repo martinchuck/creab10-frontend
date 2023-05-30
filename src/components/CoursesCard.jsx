@@ -12,16 +12,18 @@ import { useContext } from "react";
 import { CourseContext } from "../context/CourseContext";
 import { CardActionArea, Grid } from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";
+import { Link, useNavigate } from "react-router-dom";
 
 function CoursesCard({ course }) {
   const { deleteCourse } = useContext(CourseContext);
+  const navigate = useNavigate();
 
   return (
     
     
 
     <Grid item xs={12} sm={6} md={4} lg={3} xl={2}>
-      <Paper
+      <Paper 
         elevation={8}
         sx={{
           maxWidth: "15rem",
@@ -34,11 +36,16 @@ function CoursesCard({ course }) {
           mt: 2,
           ":hover": {
             boxShadow: 20,
-            cursor: "pointer",
+            
           },
         }}
       >
-        <CardHeader
+        <CardHeader  onClick={() => navigate(`/course/${course.id}`) }
+        sx={{
+          ":hover": {
+            cursor: "pointer",
+            color: "primary.main"
+          }}}
           title={
             <Typography
               gutterBottom

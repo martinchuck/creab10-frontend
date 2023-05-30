@@ -1,15 +1,10 @@
 import React from "react";
 import {
-  Paper,
   CardContent,
   IconButton,
   Dialog,
   Typography,
-  InputLabel,
-  Select,
-  MenuItem,
   Card,
-  Chip,
   ToggleButton,
   ToggleButtonGroup,
   Box,
@@ -26,14 +21,7 @@ import {
 } from "@mui/material";
 import { useState, useContext } from "react";
 import { CourseContext } from "../context/CourseContext";
-import Radio from '@mui/material/Radio';
-import RadioGroup from '@mui/material/RadioGroup';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import FormControl from '@mui/material/FormControl';
-import FormLabel from '@mui/material/FormLabel';
-import MuiToggleButton from '@mui/material/ToggleButton';
-import { styled, createTheme, ThemeProvider } from '@mui/material/styles';
-import { maxLength } from "class-validator";
+
 
 
 
@@ -131,9 +119,9 @@ function EmptyCard() {
               multiline
               rows={4}
               variant="standard"
-              helperText="Maximo 50 caracteres"
+              helperText="Maximo 80 caracteres"
               inputProps={{
-                maxLength: 50
+                maxLength: 80
               }}
               onChange={(e) => setDescription(e.target.value)}
               value={description}

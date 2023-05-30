@@ -17,6 +17,7 @@ import { useContext } from "react";
 import { useState } from "react";
 
 
+
 export const Welcome = () => {
   const [coursesLength, setCoursesLength] = useState(0);
   const { courses } = useContext(CourseContext);
