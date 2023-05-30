@@ -12,8 +12,14 @@ import CoursesForm from "./CoursesForm";
 import CoursesList from "./CoursesList";
 import EmptyCard from "./EmptyCard";
 import { createTheme, ThemeProvider } from '@mui/material';
+import { CourseContext } from "../context/CourseContext";
+import { useContext } from "react";
+import { useState } from "react";
+
 
 export const Welcome = () => {
+  const [coursesLength, setCoursesLength] = useState(0);
+  const { courses } = useContext(CourseContext);
   const token = getAuthToken();
   const navigate = useNavigate();
   const logout = useLogout();
@@ -75,6 +81,18 @@ export const Welcome = () => {
             📚Cursos B10
           </Typography>
           </Box>
+          <Typography variant="h6" color="initial" sx={{
+            fontWeight: "400",
+           
+            mt: 2,
+            mb: 2,
+            ml: 2,
+            mr: 2,
+          }}
+          >
+            {courses.length > 0 ? `Total de cursos: ${courses.length}` : "No tienes cursos creados"}
+            
+          </Typography>
           <Grid container  spacing={1} sx={{
             display: "flex",
             flexDirection: "row",
@@ -82,6 +100,7 @@ export const Welcome = () => {
           
             
           }}>
+        
           <CoursesList />
           <EmptyCard />
           </Grid>
