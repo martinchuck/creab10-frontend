@@ -1,5 +1,5 @@
 import { createContext, useState, useEffect } from "react";
-import {courses as data} from "../courses"
+import { courses as data } from "../courses";
 
 export const CourseContext = createContext();
 
@@ -7,13 +7,13 @@ export function CourseContextProvider(props) {
   const [courses, setCourses] = useState([]);
 
   function createCourse(course) {
-    setCourses([
-      ...courses,
+    setCourses((previousCourses) => [
+      ...previousCourses,
       {
-        id: courses.length + 1,
+        id: previousCourses.length + 1,
         name: course.courseName,
         description: course.description,
-        state: course.state,
+        state: course.stateCourse,
       },
     ]);
   }
