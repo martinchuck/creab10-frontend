@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { getAuthToken, useLogout } from "../shared/login";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
@@ -13,6 +13,7 @@ import EmptyCard from "./EmptyCard";
 import { CourseContext } from "../context/CourseContext";
 import { useContext } from "react";
 import { useState } from "react";
+import NavBar from "./navbar/NavBar";
 
 
 
@@ -21,13 +22,16 @@ export const Welcome = () => {
   const { courses } = useContext(CourseContext);
   const token = getAuthToken();
   const navigate = useNavigate();
-  const logout = useLogout();
   useEffect(() => {
     if (!token) {
       navigate("/login");
     }
   }, [token, navigate]);
-
+  const navArrayLinks = [
+    {
+        title: 'Inicio', path: '/dashboard'
+    }
+]
 
    
 
@@ -39,27 +43,7 @@ export const Welcome = () => {
     
     <>
         <Box sx={{ flexGrow: 1 }}>
-          <AppBar position="static">
-            <Toolbar>
-              <Typography
-                variant="h5"
-                component="div"
-                sx={{ flexGrow: 1, fontWeight: "bold",   }}
-              >
-                Crea B10
-              </Typography>
-              <Button
-                color="inherit"
-                onClick={async () => {
-                  logout();
-                }}
-                sx={{ fontWeight: "bold" }}
-                endIcon={<LogoutIcon />}
-              >
-                Cerrar sesión
-              </Button>
-            </Toolbar>
-          </AppBar>
+        <NavBar navArrayLinks={navArrayLinks}/>
           {/* <button
             onClick={async () => {
               const response = await api.get("/users");
