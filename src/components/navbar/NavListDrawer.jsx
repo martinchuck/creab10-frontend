@@ -12,8 +12,8 @@ export default function NavListDrawer({navArrayLinks}) {
         {navArrayLinks.map((item) => (
             <ListItem disablePadding key={item.title}>
                 <ListItemButton
-                
-                Link to={item.path}>
+                component={Link}
+                To={item.path}>
                 <ListItemText primary="Inicio">{item.title}</ListItemText>
                 </ListItemButton>
             </ListItem>
