@@ -32,9 +32,7 @@ function EmptyCard() {
   const { createCourse } = useContext(CourseContext);
   const [stateCourse, setStateCourse] = useState("En Proceso");
 
-  const handleChangeToggle = (event, newAlignment) => {
-    setAlignment(newAlignment);
-  };
+
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -55,6 +53,7 @@ function EmptyCard() {
     <Grid item xs={12} sm={6} md={4} lg={3} xl={2}>
       <Card
         elevation={8}
+       
         sx={{
           display: "flex",
           justifyContent: "center",
@@ -67,19 +66,25 @@ function EmptyCard() {
           mr: 1,
           mb: 2,
           mt: 2,
-          ":hover": {
-            boxShadow: 20,
-          },
+
         }}
       >
-        <CardContent>
-        <Typography variant="body1" color="gray" fontWeight="bold">
+        <CardContent >
+        <Typography variant="body1" color="gray" fontWeight="bold" onClick={handleClickOpen}
+        sx={{
+                ":hover": {
+                  color:"primary.main",
+                  cursor: "pointer",}
+              }}
+        >
           Nuevo curso
         </Typography>
           <IconButton aria-label="add" onClick={handleClickOpen}>
             <AddCircleIcon
               sx={{
                 fontSize: 80,
+                ":hover": {
+                  color:"primary.main",}
               }}
             />
           </IconButton>
