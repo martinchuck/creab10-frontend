@@ -104,8 +104,8 @@ function EmptyCard() {
             </DialogContentText>
 
             <TextField
-              autoFocus
               margin="dense"
+              autoFocus
               id="course-name"
               label="Titulo del curso"
               type="text"

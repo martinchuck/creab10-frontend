@@ -1,7 +1,8 @@
 import { Box, List, ListItem, ListItemButton, ListItemText } from "@mui/material";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
-export default function NavListDrawer({navArrayLinks}) {
+
+export default function NavListDrawer({navArrayLinks, NavLink}) {
     const navigate = useNavigate();
     return( <Box sx={{
         display: { xs: 'none', sm: 'block'},
@@ -9,12 +10,13 @@ export default function NavListDrawer({navArrayLinks}) {
     }}>
     <nav>
         <List>
-        {navArrayLinks.map((item) => (
+        {navArrayLinks && navArrayLinks.map((item) => (
             <ListItem disablePadding key={item.title}>
                 <ListItemButton
-                component={Link}
-                To={item.path}>
-                <ListItemText primary="Inicio">{item.title}</ListItemText>
+                component={NavLink}
+                to={item.path}>
+
+                <ListItemText >{item.title}</ListItemText>
                 </ListItemButton>
             </ListItem>
             ))}

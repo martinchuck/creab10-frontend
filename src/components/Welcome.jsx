@@ -27,18 +27,14 @@ export const Welcome = () => {
       navigate("/login");
     }
   }, [token, navigate]);
-  const navArrayLinks = [
+
+   const navArrayLinks = [
     {
-        title: 'Inicio', path: '/dashboard'
+        title: 'Inidfgcio',
+        path: '/dashboard',
+        
     }
 ]
-
-   
-
-
-
-
-
   return (
     
     <>
@@ -54,6 +50,7 @@ export const Welcome = () => {
           </button> */}
           
         </Box>
+       
         <Box m={1} mx={2}>
           <Typography variant="h1" color="initial" sx={{
             fontWeight: "700",

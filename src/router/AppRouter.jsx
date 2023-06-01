@@ -5,7 +5,7 @@ import { Welcome } from '../components/Welcome';
 import { getAuthToken } from '../shared/login';
 import { MainPageRegister } from '../components/component-login/MainPageRegister';
 import { MainRegisteredPage } from '../components/component-login/MainRegisteredPage';
-import Course from '../components/Course';
+import Course from '../components/courses/Course';
 
 
 export const AppRouter = () => {

@@ -40,7 +40,7 @@ function CoursesCard({ course }) {
           },
         }}
       >
-        <CardHeader  onClick={() => navigate(`/course/${course.id}`) }
+        <CardHeader  onClick={() => navigate(`/course/`) }
         sx={{
           ":hover": {
             cursor: "pointer",

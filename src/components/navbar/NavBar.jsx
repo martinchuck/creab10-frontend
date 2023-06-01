@@ -1,9 +1,10 @@
-import { AppBar, Button, Drawer, Toolbar, Typography, IconButton } from "@mui/material";
+import { AppBar, Button, Drawer, Toolbar, Typography, IconButton, Box } from "@mui/material";
 import NavListDrawer from "./NavListDrawer";
 import LogoutIcon from "@mui/icons-material/Logout";
 import MenuIcon from '@mui/icons-material/Menu';
 import { useState } from "react";
 import { useLogout } from "../../shared/login";
+import { NavLink } from "react-router-dom";
 
 
 
@@ -24,6 +25,21 @@ export default function NavBar({navArrayLinks}) {
               </IconButton>
                 Crea B10
               </Typography>
+
+    
+              {navArrayLinks && navArrayLinks.map((item,index) => ( 
+                <Button
+                key={index}
+                color="inherit"
+                component={NavLink}
+                to={item.path}
+                sx={{ fontWeight: "bold" }}
+                >
+                {item.title}
+                </Button>
+              ))
+                }
+               
               <Button
                 color="inherit"
                 onClick={async () => {
@@ -37,7 +53,7 @@ export default function NavBar({navArrayLinks}) {
             </Toolbar>
           </AppBar>
         <Drawer open={open} onClose={() => setOpen(false)}>
-            <NavListDrawer navArrayLinks={navArrayLinks}/>
+            <NavListDrawer navArrayLinks={navArrayLinks} NavLink={NavLink}/>
         </Drawer>
         </>
     ) 
