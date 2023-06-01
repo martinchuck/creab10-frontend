@@ -1,21 +1,28 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import { Box, Typography, Container } from "@mui/material";
 import {  useNavigate } from "react-router-dom";
 import { getAuthToken, } from "../../shared/login";
-import EditorJS from '@editorjs/editorjs';
-import ConfigurationEditor from "./ConfigurationEditor";
 import NavBar from "../navbar/NavBar";
+import EditorComponent from "./EditorComponent";
+
+
+
 
 function Course({ navArrayLinks }) {
+ 
+
   const token = getAuthToken();
   const navigate = useNavigate();
-  const editor = new EditorJS();
+
 
   useEffect(() => {
     if (!token) {
       navigate("/login");
     }
   }, [token, navigate]);
+
+
+
 
   return (
     <>
@@ -37,8 +44,7 @@ function Course({ navArrayLinks }) {
           borderRadius: 6,
           p: 2,
         }}>
-          
-        <div id="editorjs"></div>
+      <EditorComponent />
         </Container>
       </Box>
     </>
