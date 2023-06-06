@@ -4,15 +4,18 @@ import {  useNavigate } from "react-router-dom";
 import { getAuthToken, } from "../../shared/login";
 import NavBar from "../navbar/NavBar";
 import EditorComponent from "./EditorComponent";
+import MenuItems from "./MenuItems";
 
 
 
 
-function Course({ navArrayLinks }) {
+
+function Course() {
  
 
   const token = getAuthToken();
   const navigate = useNavigate();
+  
 
 
   useEffect(() => {
@@ -21,6 +24,14 @@ function Course({ navArrayLinks }) {
     }
   }, [token, navigate]);
 
+
+  const navArrayLinks = [
+    {
+        title: 'Inidfgcio',
+        path: '/dashboard',
+        
+    }
+]
 
 
 
@@ -37,6 +48,7 @@ function Course({ navArrayLinks }) {
         >
           Curso
         </Typography>
+        <MenuItems />
         <Container sx={{
           bgcolor: "background.paper",
           display: "flex",

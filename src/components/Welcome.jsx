@@ -28,7 +28,7 @@ export const Welcome = () => {
     }
   }, [token, navigate]);
 
-   const navArrayLinks = [
+    const navArrayLinks = [
     {
         title: 'Inidfgcio',
         path: '/dashboard',
