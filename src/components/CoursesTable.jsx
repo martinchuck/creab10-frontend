@@ -5,7 +5,12 @@ import { CourseContext } from "../context/CourseContext";
 function CoursesTable() {
     const { courses } = useContext(CourseContext);
   return (
-    <TableContainer component={Paper}>
+    <TableContainer component={Paper}
+    sx={{
+        borderRadius: 2,
+        maxWidth: "97%",
+    }}
+    >
         <Table aria-label="simple table">
             <TableHead>
                 <TableRow>
