@@ -14,6 +14,7 @@ import { CourseContext } from "../context/CourseContext";
 import { useContext } from "react";
 import { useState } from "react";
 import NavBar from "./navbar/NavBar";
+import CoursesTable from "./CoursesTable";
 
 
 
@@ -80,7 +81,7 @@ export const Welcome = () => {
           
             
           }}>
-        
+        <CoursesTable />
           <CoursesList />
           <EmptyCard />
           </Grid>
