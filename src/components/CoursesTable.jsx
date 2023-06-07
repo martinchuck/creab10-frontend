@@ -1,7 +1,9 @@
 import { TableContainer,Paper, Table, TableHead, TableBody, TableRow, TableCell, Chip } from '@mui/material'
-import React from 'react'
+import React, { useContext } from 'react'
+import { CourseContext } from "../context/CourseContext";
 
 function CoursesTable() {
+    const { courses } = useContext(CourseContext);
   return (
     <TableContainer component={Paper}>
         <Table aria-label="simple table">
@@ -13,15 +15,15 @@ function CoursesTable() {
                 </TableRow>
             </TableHead>
             <TableBody>
-                 {tableData.map((row) => (
-                    <TableRow key={row.id}
+            {courses.map((course) => (
+        <TableRow key={course.id}
                     sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
-                        <TableCell>{row.id}</TableCell>
-                        <TableCell>{row.name}</TableCell>
+                        <TableCell>{course.id}</TableCell>
+                        <TableCell>{course.name}</TableCell>
                         <TableCell>
-                        {row.state === "Sin Empezar" && (
+                        {course.state === "Sin Empezar" && (
             <Chip
-              label={row.state}
+              label={course.state}
               sx={{
                 fontWeight: "700",
                 fontSize: "0.775rem",
@@ -32,9 +34,9 @@ function CoursesTable() {
               }}
             />
           )}
-          {row.state === "En Proceso" && (
+          {course.state === "En Proceso" && (
             <Chip
-              label={row.state}
+              label={course.state}
               sx={{
                 fontWeight: "700",
                 fontSize: "0.775rem",
@@ -47,9 +49,9 @@ function CoursesTable() {
           )}
           
           
-          {row.state === "Para Revisión" && (
+          {course.state === "Para Revisión" && (
             <Chip
-              label={row.state}
+              label={course.state}
               sx={{
                 fontWeight: "700",
                 fontSize: "0.775rem",
@@ -61,9 +63,9 @@ function CoursesTable() {
             />
           )}
 
-          {row.state === "Terminado" && (
+          {course.state === "Terminado" && (
             <Chip
-              label={row.state}
+              label={course.state}
               sx={{      
                 fontWeight: "700",
                 fontSize: "0.775rem",
@@ -83,29 +85,6 @@ function CoursesTable() {
     </TableContainer>
   )
 }
-const tableData = [
-    {
-        id: 1,
-        name: '📷Curso de fotografia',
-        state: 'Sin Empezar',
-    },
-    {
-        id: 2,
-        name: 'Curso de Cocina',
-        state: 'En Proceso',
-    },
-    {
-        id: 3,
-        name: 'Curso de React',
-        state: 'Para Revisión',
-    }, {
-        id: 4,
-        name: 'Curso de JS',
-        state: 'Terminado',
 
-    },
-
-
-]
 
 export default CoursesTable

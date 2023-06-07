@@ -81,7 +81,8 @@ export const Welcome = () => {
           
             
           }}>
-        <CoursesTable />
+
+          <CoursesTable />
           <CoursesList />
           <EmptyCard />
           </Grid>
