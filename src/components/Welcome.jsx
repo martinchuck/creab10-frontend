@@ -15,12 +15,15 @@ import { useContext } from "react";
 import { useState } from "react";
 import NavBar from "./navbar/NavBar";
 import CoursesTable from "./CoursesTable";
+import TableRowsIcon from '@mui/icons-material/TableRows';
+import ArticleIcon from '@mui/icons-material/Article';
 
 
 
 export const Welcome = () => {
   const [coursesLength, setCoursesLength] = useState(0);
   const { courses } = useContext(CourseContext);
+  const [viewCourse, setViewCourse] = useState("card-view");
   const token = getAuthToken();
   const navigate = useNavigate();
   useEffect(() => {
@@ -36,6 +39,7 @@ export const Welcome = () => {
         
     }
 ]
+ 
   return (
     
     <>
@@ -61,63 +65,26 @@ export const Welcome = () => {
           >
             📚Cursos B10
           </Typography>
-
+        
           <ToggleButtonGroup size="small"
-      label="Estado del curso"
-      fontSize="small"
-      align
-    
+      label="courses-view"
+      value={viewCourse}
       exclusive
-      
+      onChange={
+        (event, newViewCourse) => {
+          setViewCourse(newViewCourse);
+        }
+        
+      }
+      fontSize="small"
       aria-label="Platform"
     >
-          <ToggleButton value="Sin Empezar" sx={{
-        ":hover":{
-                backgroundColor: "#FF484229",
-                color: "#B72136",
-        },
-        '&.Mui-selected, &.Mui-selected:hover':{
-                fontWeight: "700",
-                backgroundColor: "#FF484229",
-                color: "#B72136",
-        }
-      }}>Sin Empezar</ToggleButton>
-      <ToggleButton value="En Proceso" sx={{
-        ":hover":{
-                backgroundColor: "#ffd70085",
-                color: "#998200",
-        },
-        '&.Mui-selected, &.Mui-selected:hover':{
-                fontWeight: "700",
-                backgroundColor: "#ffd70085",
-                color: "#998200",
-        }
-      }}>En Proceso</ToggleButton>
-      <ToggleButton value="Para Revisión" sx={{
-        ":hover":{
-                backgroundColor: "#e71be150",
-                color: "#9c0098",
-        },
-        '&.Mui-selected, &.Mui-selected:hover':{
-                fontWeight: "700",
-                backgroundColor: "#e71be150",
-                color: "#9c0098",
-        }
-      }}>Para Revisión</ToggleButton>
-      <ToggleButton value="Terminado" sx={{
-        ":hover":{
-                fontWeight: "700",
-                backgroundColor: "#54D62C29",
-                color: "#229A16",
-            
-        },
-        '&.Mui-selected, &.Mui-selected:hover':{
-                fontWeight: "700",
-                backgroundColor: "#54D62C29",
-                color: "#229A16",
-           
-        }
-      }}>Terminado</ToggleButton>
+          <ToggleButton value="table-view">
+            <TableRowsIcon/>  
+          </ToggleButton>
+      <ToggleButton value="card-view">
+      <ArticleIcon/>
+      </ToggleButton>
     </ToggleButtonGroup>
           </Box>
           <Typography variant="h6" color="initial" sx={{
@@ -140,8 +107,7 @@ export const Welcome = () => {
             
           }}>
 
-          <CoursesTable />
-          <CoursesList />
+          {viewCourse === "card-view" ? <CoursesList /> : <CoursesTable />}
           <EmptyCard />
           </Grid>
           

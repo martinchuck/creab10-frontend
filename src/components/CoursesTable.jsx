@@ -1,9 +1,10 @@
 import { TableContainer,Paper, Table, TableHead, TableBody, TableRow, TableCell, Chip } from '@mui/material'
-import React, { useContext } from 'react'
+import React, { useContext} from 'react'
 import { CourseContext } from "../context/CourseContext";
 
 function CoursesTable() {
     const { courses } = useContext(CourseContext);
+
   return (
     <TableContainer component={Paper}
     sx={{
