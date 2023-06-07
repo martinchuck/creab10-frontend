@@ -7,7 +7,7 @@ import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import LogoutIcon from "@mui/icons-material/Logout";
-import { Grid } from "@mui/material";
+import { Grid, ToggleButton, ToggleButtonGroup } from "@mui/material";
 import CoursesList from "./CoursesList";
 import EmptyCard from "./EmptyCard";
 import { CourseContext } from "../context/CourseContext";
@@ -52,15 +52,73 @@ export const Welcome = () => {
           
         </Box>
        
-        <Box m={1} mx={2}>
-          <Typography variant="h1" color="initial" sx={{
+        <Box m={1} mx={2} display="flex"
+        justifyContent="space-between">
+          <Typography variant="p" color="initial" sx={{
             fontWeight: "700",
             fontSize: "2rem",
-            
           }}
           >
             📚Cursos B10
           </Typography>
+
+          <ToggleButtonGroup size="small"
+      label="Estado del curso"
+      fontSize="small"
+      align
+    
+      exclusive
+      
+      aria-label="Platform"
+    >
+          <ToggleButton value="Sin Empezar" sx={{
+        ":hover":{
+                backgroundColor: "#FF484229",
+                color: "#B72136",
+        },
+        '&.Mui-selected, &.Mui-selected:hover':{
+                fontWeight: "700",
+                backgroundColor: "#FF484229",
+                color: "#B72136",
+        }
+      }}>Sin Empezar</ToggleButton>
+      <ToggleButton value="En Proceso" sx={{
+        ":hover":{
+                backgroundColor: "#ffd70085",
+                color: "#998200",
+        },
+        '&.Mui-selected, &.Mui-selected:hover':{
+                fontWeight: "700",
+                backgroundColor: "#ffd70085",
+                color: "#998200",
+        }
+      }}>En Proceso</ToggleButton>
+      <ToggleButton value="Para Revisión" sx={{
+        ":hover":{
+                backgroundColor: "#e71be150",
+                color: "#9c0098",
+        },
+        '&.Mui-selected, &.Mui-selected:hover':{
+                fontWeight: "700",
+                backgroundColor: "#e71be150",
+                color: "#9c0098",
+        }
+      }}>Para Revisión</ToggleButton>
+      <ToggleButton value="Terminado" sx={{
+        ":hover":{
+                fontWeight: "700",
+                backgroundColor: "#54D62C29",
+                color: "#229A16",
+            
+        },
+        '&.Mui-selected, &.Mui-selected:hover':{
+                fontWeight: "700",
+                backgroundColor: "#54D62C29",
+                color: "#229A16",
+           
+        }
+      }}>Terminado</ToggleButton>
+    </ToggleButtonGroup>
           </Box>
           <Typography variant="h6" color="initial" sx={{
             fontWeight: "400",
