@@ -16,7 +16,7 @@ function CoursesTable() {
         <Table aria-label="simple table" sx={{
          
           "& .MuiTableRow-root:hover": {
-            cursor: "pointer",
+            
             backgroundColor: "#f5f5f5",
           },
         }}  >
@@ -94,7 +94,17 @@ function CoursesTable() {
                     </TableRow>
                  ))}
                  <TableRow>
-                    <TableCell colSpan={3} variant='footer' >
+                    <TableCell colSpan={3} variant='footer' sx={{
+                      "&:hover": {
+                        cursor: "pointer",
+                      "& .MuiSvgIcon-root": {
+                        color: "primary.main"
+                            },
+                      "& .MuiTypography-root": {
+                        color: "primary.main"
+                      }
+                      },
+                    }}>
                     <Box sx={{ display: 'flex', alignItems: 'center', textAlign:"center" }}>
                         <AddIcon  sx={{ fontSize: 25,color:"gray"}}
                         ></AddIcon>
@@ -104,7 +114,6 @@ function CoursesTable() {
                             color: "gray",
                             fontWeight: "500",
                             fontSize: "1.1rem",
-
                         }}
                         >
                         Nuevo curso
