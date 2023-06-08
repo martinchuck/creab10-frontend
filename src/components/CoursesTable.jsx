@@ -1,6 +1,7 @@
-import { TableContainer,Paper, Table, TableHead, TableBody, TableRow, TableCell, Chip } from '@mui/material'
+import { TableContainer,Paper, Table, TableHead, TableBody, TableRow, TableCell, Chip, Typography, Box } from '@mui/material'
 import React, { useContext} from 'react'
 import { CourseContext } from "../context/CourseContext";
+import AddIcon from '@mui/icons-material/Add';
 
 function CoursesTable() {
     const { courses } = useContext(CourseContext);
@@ -12,7 +13,13 @@ function CoursesTable() {
         maxWidth: "97%",
     }}
     >
-        <Table aria-label="simple table">
+        <Table aria-label="simple table" sx={{
+         
+          "& .MuiTableRow-root:hover": {
+            cursor: "pointer",
+            backgroundColor: "#f5f5f5",
+          },
+        }}  >
             <TableHead>
                 <TableRow>
                 <TableCell>ID</TableCell>
@@ -86,6 +93,25 @@ function CoursesTable() {
                         </TableCell>
                     </TableRow>
                  ))}
+                 <TableRow>
+                    <TableCell colSpan={3} variant='footer' >
+                    <Box sx={{ display: 'flex', alignItems: 'center', textAlign:"center" }}>
+                        <AddIcon  sx={{ fontSize: 25,color:"gray"}}
+                        ></AddIcon>
+                         <Typography 
+                        variant="body1"
+                        sx={{
+                            color: "gray",
+                            fontWeight: "500",
+                            fontSize: "1.1rem",
+
+                        }}
+                        >
+                        Nuevo curso
+                        </Typography>
+                       </Box>
+                      </TableCell>
+                 </TableRow>
             </TableBody>
         </Table>
     </TableContainer>
