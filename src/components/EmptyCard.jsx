@@ -1,32 +1,11 @@
 import React, { useState, useContext } from "react";
-import {
-  CardContent,
-  IconButton,
-  Typography,
-  Card,
-  Grid,
-} from "@mui/material";
+import { CardContent, IconButton, Typography, Card, Grid } from "@mui/material";
 import AddCircleIcon from "@mui/icons-material/AddCircle";
 import { Button } from "@mui/material";
 import { CourseContext } from "../context/CourseContext";
 import CreateCourseDialog from "./CreateCourseDialog";
 
-function EmptyCard() {
-  const [open, setOpen] = useState(false);
-  const { createCourse } = useContext(CourseContext);
-
-  const handleClickOpen = () => {
-    setOpen(true);
-  };
-
-  const handleClose = () => {
-    setOpen(false);
-  };
-
-  const handleSubmit = (courseData) => {
-    createCourse(courseData);
-  };
-
+function EmptyCard({ handleClickOpen }) {
   return (
     <Grid item xs={12} sm={6} md={4} lg={3} xl={2}>
       <Card
@@ -71,11 +50,6 @@ function EmptyCard() {
             />
           </IconButton>
         </CardContent>
-        <CreateCourseDialog
-          open={open}
-          onClose={handleClose}
-          onSubmit={handleSubmit}
-        />
       </Card>
     </Grid>
   );
