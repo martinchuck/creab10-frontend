@@ -19,11 +19,8 @@ function CoursesCard({ course }) {
   const navigate = useNavigate();
 
   return (
-    
-    
-
     <Grid item xs={12} sm={6} md={4} lg={3} xl={2}>
-      <Paper 
+      <Paper
         elevation={8}
         sx={{
           maxWidth: "15rem",
@@ -36,16 +33,17 @@ function CoursesCard({ course }) {
           mt: 2,
           ":hover": {
             boxShadow: 20,
-            
           },
         }}
       >
-        <CardHeader  onClick={() => navigate(`/course/`) }
-        sx={{
-          ":hover": {
-            cursor: "pointer",
-            color: "primary.main"
-          }}}
+        <CardHeader
+          onClick={() => navigate(`/course/${course.id}`)}
+          sx={{
+            ":hover": {
+              cursor: "pointer",
+              color: "primary.main",
+            },
+          }}
           title={
             <Typography
               gutterBottom
@@ -58,7 +56,12 @@ function CoursesCard({ course }) {
             </Typography>
           }
           subheader={
-            <Typography variant="caption" lineHeight="1." color="#757575" component="p">
+            <Typography
+              variant="caption"
+              lineHeight="1."
+              color="#757575"
+              component="p"
+            >
               {course.description}
             </Typography>
           }
@@ -71,8 +74,8 @@ function CoursesCard({ course }) {
             </IconButton>
           }
         ></CardHeader>
-        <CardActions >
-        {course.state === "Sin Empezar" && (
+        <CardActions>
+          {course.state === "Sin Empezar" && (
             <Chip
               label={course.state}
               sx={{
@@ -98,8 +101,7 @@ function CoursesCard({ course }) {
               }}
             />
           )}
-          
-          
+
           {course.state === "Para Revisión" && (
             <Chip
               label={course.state}
@@ -117,7 +119,7 @@ function CoursesCard({ course }) {
           {course.state === "Terminado" && (
             <Chip
               label={course.state}
-              sx={{      
+              sx={{
                 fontWeight: "700",
                 fontSize: "0.775rem",
                 backgroundColor: "#54D62C29",
@@ -128,8 +130,6 @@ function CoursesCard({ course }) {
               }}
             />
           )}
-
-          
         </CardActions>
       </Paper>
     </Grid>

@@ -111,6 +111,7 @@ function CoursesTable({ handleClickOpen }) {
             <TableCell
               colSpan={3}
               variant="footer"
+              onClick={handleClickOpen}
               sx={{
                 "&:hover": {
                   cursor: "pointer",
@@ -138,7 +139,6 @@ function CoursesTable({ handleClickOpen }) {
                     fontWeight: "500",
                     fontSize: "1.1rem",
                   }}
-                  onClick={handleClickOpen}
                 >
                   Nuevo curso
                 </Typography>
