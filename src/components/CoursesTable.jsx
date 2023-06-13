@@ -9,11 +9,13 @@ import {
   Chip,
   Typography,
   Box,
+  IconButton,
 } from "@mui/material";
 import React, { useContext } from "react";
 import { CourseContext } from "../context/CourseContext";
 import AddIcon from "@mui/icons-material/Add";
 import { useNavigate } from "react-router-dom";
+import DeleteIcon from "@mui/icons-material/Delete";
 
 function CoursesTable({ handleClickOpen }) {
   const { courses } = useContext(CourseContext);
@@ -37,9 +39,10 @@ function CoursesTable({ handleClickOpen }) {
       >
         <TableHead>
           <TableRow>
-            <TableCell>ID</TableCell>
+          {/*   <TableCell>ID</TableCell> */}
             <TableCell>Nombre</TableCell>
             <TableCell>Estado</TableCell>
+            <TableCell></TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -61,7 +64,7 @@ function CoursesTable({ handleClickOpen }) {
                 }}
 
             >
-              <TableCell>{course.id}</TableCell>
+              {/* <TableCell>{course.id}</TableCell> */}
               <TableCell className="nameText">{course.name}</TableCell>
               <TableCell>
                 {course.state === "Sin Empezar" && (
@@ -119,9 +122,28 @@ function CoursesTable({ handleClickOpen }) {
                     }}
                   />
                 )}
+           
+                
+            
+         
+       
+
               </TableCell>
+          <TableCell sx={{
+            textAlign: "right",
+          }}>
+             
+         <IconButton  aria-label="delete" size="small"  >
+                <DeleteIcon />
+              </IconButton>
+         </TableCell>
             </TableRow>
           ))}
+
+
+
+
+
           <TableRow>
             <TableCell
               colSpan={3}
@@ -143,7 +165,7 @@ function CoursesTable({ handleClickOpen }) {
                 sx={{
                   display: "flex",
                   alignItems: "center",
-                  textAlign: "center",
+                  
                 }}
               >
                 <AddIcon sx={{ fontSize: 25, color: "gray" }}></AddIcon>
