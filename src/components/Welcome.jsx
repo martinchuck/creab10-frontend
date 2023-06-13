@@ -123,11 +123,13 @@ export const Welcome = () => {
         }}
       >
         {viewCourse === "card-view" ? (
+          <>
           <CoursesList />
+        <EmptyCard handleClickOpen={handleClickOpen} />
+        </>
         ) : (
           <CoursesTable handleClickOpen={handleClickOpen} />
         )}
-        <EmptyCard handleClickOpen={handleClickOpen} />
         <CreateCourseDialog
           open={open}
           onClose={handleClose}
