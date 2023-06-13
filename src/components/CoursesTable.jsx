@@ -20,6 +20,10 @@ import DeleteIcon from "@mui/icons-material/Delete";
 function CoursesTable({ handleClickOpen, handleDeleteCourse }) {
   const { courses } = useContext(CourseContext);
   const navigate = useNavigate();
+  const handleDelete = (event, courseId) => {
+    event.stopPropagation(); // Evitar la propagación del evento
+    handleDeleteCourse(courseId); // Eliminar el curso
+  };
 
   return (
     <TableContainer
@@ -133,7 +137,7 @@ function CoursesTable({ handleClickOpen, handleDeleteCourse }) {
           <TableCell sx={{
             textAlign: "right",
           }}>
-         <IconButton  aria-label="delete" size="small" onClick={() => handleDeleteCourse(course.id)}  >
+         <IconButton  aria-label="delete" size="small" onClick={(event) => handleDelete(event, course.id)}  >
                 <DeleteIcon />
               </IconButton>
          </TableCell>

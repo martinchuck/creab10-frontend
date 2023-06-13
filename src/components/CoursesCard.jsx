@@ -17,10 +17,9 @@ import { Link, useNavigate } from "react-router-dom";
 function CoursesCard({ course, handleDeleteCourse }) {
   const navigate = useNavigate();
 
-  const handleDelete = (id) => {
-    id.stopPropagation();
-    console.log(id);
-    handleDeleteCourse(id);
+  const handleDelete = (e) => {
+    e.stopPropagation();
+    handleDeleteCourse(course.id);
   };
 
   return (
