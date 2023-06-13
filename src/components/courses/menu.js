@@ -3,12 +3,7 @@ import React from "react";
 export const menu = [
   {
     
-    title: "Home",
-    items: []
-  },
-  {
-    
-    title: "Education",
+    title: "Presentación del curso",
     items: [
       {
         title: "Technical Analysis",
@@ -75,12 +70,5 @@ export const menu = [
       }
     ]
   },
-  {
-    
-    title: "Options"
-  },
-  {
-    
-    title: "Blog"
-  }
+
 ];

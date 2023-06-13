@@ -34,12 +34,12 @@ function Course() {
       <Box sx={{ flexGrow: 1 }}>
         <NavBar navArrayLinks={navArrayLinks} />
         
-        <MenuItems />
         <Container
           sx={{
             bgcolor: "background.paper",
             borderRadius: 6,
             p: 2,
+            mt: 10,
           }}
         >
         <Typography
@@ -55,6 +55,8 @@ function Course() {
         >
           {course.name}
         </Typography>
+        <MenuItems />
+
           <EditorComponent />
         </Container>
       </Box>
