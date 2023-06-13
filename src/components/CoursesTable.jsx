@@ -17,7 +17,7 @@ import AddIcon from "@mui/icons-material/Add";
 import { useNavigate } from "react-router-dom";
 import DeleteIcon from "@mui/icons-material/Delete";
 
-function CoursesTable({ handleClickOpen }) {
+function CoursesTable({ handleClickOpen, handleDeleteCourse }) {
   const { courses } = useContext(CourseContext);
   const navigate = useNavigate();
 
@@ -50,6 +50,7 @@ function CoursesTable({ handleClickOpen }) {
             <TableRow
               key={course.id}
               onClick={() => navigate(`/course/${course.id}`)}
+              
               sx={{ 
                 "&:last-child td, &:last-child th": { border: 0 } ,
                 "&:hover": {
@@ -132,8 +133,7 @@ function CoursesTable({ handleClickOpen }) {
           <TableCell sx={{
             textAlign: "right",
           }}>
-             
-         <IconButton  aria-label="delete" size="small"  >
+         <IconButton  aria-label="delete" size="small" onClick={() => handleDeleteCourse(course.id)}  >
                 <DeleteIcon />
               </IconButton>
          </TableCell>

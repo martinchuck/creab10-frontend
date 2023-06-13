@@ -14,13 +14,13 @@ import { CardActionArea, Grid } from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { Link, useNavigate } from "react-router-dom";
 
-function CoursesCard({ course }) {
-  const { deleteCourse } = useContext(CourseContext);
+function CoursesCard({ course, handleDeleteCourse }) {
   const navigate = useNavigate();
 
   const handleDelete = (id) => {
     id.stopPropagation();
-    deleteCourse(course.id);
+    console.log(id);
+    handleDeleteCourse(id);
   };
 
   return (

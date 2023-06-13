@@ -21,7 +21,7 @@ import CreateCourseDialog from "./CreateCourseDialog";
 
 export const Welcome = () => {
   const [coursesLength, setCoursesLength] = useState(0);
-  const { courses } = useContext(CourseContext);
+  const { courses, deleteCourse } = useContext(CourseContext);
   const [viewCourse, setViewCourse] = useState("card-view");
   const token = getAuthToken();
   const navigate = useNavigate();
@@ -38,6 +38,9 @@ export const Welcome = () => {
 
   const handleSubmit = (courseData) => {
     createCourse(courseData);
+  };
+  const handleDeleteCourse = (courseId) => {
+    deleteCourse(courseId);
   };
   useEffect(() => {
     if (!token) {
@@ -124,11 +127,14 @@ export const Welcome = () => {
       >
         {viewCourse === "card-view" ? (
           <>
-          <CoursesList />
-        <EmptyCard handleClickOpen={handleClickOpen} />
-        </>
+            <CoursesList handleDeleteCourse={handleDeleteCourse} />
+            <EmptyCard handleClickOpen={handleClickOpen} />
+          </>
         ) : (
-          <CoursesTable handleClickOpen={handleClickOpen} />
+          <CoursesTable
+            handleClickOpen={handleClickOpen}
+            handleDeleteCourse={handleDeleteCourse}
+          />
         )}
         <CreateCourseDialog
           open={open}
