@@ -1,5 +1,6 @@
 import { createContext, useState, useEffect } from "react";
 import { courses as data } from "../courses";
+import { v4 as uuidv4 } from "uuid";
 
 export const CourseContext = createContext();
 
@@ -7,15 +8,13 @@ export function CourseContextProvider(props) {
   const [courses, setCourses] = useState([]);
 
   function createCourse(course) {
-    setCourses((previousCourses) => [
-      ...previousCourses,
-      {
-        id: previousCourses.length + 1,
-        name: course.courseName,
-        description: course.description,
-        state: course.stateCourse,
-      },
-    ]);
+    const newCourse = {
+      id: uuidv4(),
+      name: course.courseName,
+      description: course.description,
+      state: course.stateCourse,
+    };
+    setCourses((previousCourses) => [...previousCourses, newCourse]);
   }
 
   function deleteCourse(courseId) {

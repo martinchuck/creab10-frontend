@@ -18,9 +18,15 @@ function CoursesCard({ course }) {
   const { deleteCourse } = useContext(CourseContext);
   const navigate = useNavigate();
 
+  const handleDelete = (id) => {
+    id.stopPropagation();
+    deleteCourse(course.id);
+  };
+
   return (
     <Grid item xs={12} sm={6} md={4} lg={3} xl={2}>
       <Paper
+        onClick={() => navigate(`/course/${course.id}`)}
         elevation={8}
         sx={{
           maxWidth: "15rem",
@@ -33,11 +39,11 @@ function CoursesCard({ course }) {
           mt: 2,
           ":hover": {
             boxShadow: 20,
+            cursor: "pointer",
           },
         }}
       >
         <CardHeader
-          onClick={() => navigate(`/course/${course.id}`)}
           sx={{
             ":hover": {
               cursor: "pointer",
@@ -68,7 +74,7 @@ function CoursesCard({ course }) {
           action={
             <IconButton
               aria-label="delete"
-              onClick={() => deleteCourse(course.id)}
+              onClick={handleDelete}
             >
               <DeleteIcon />
             </IconButton>

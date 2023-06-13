@@ -20,7 +20,7 @@ function Course() {
 
   const navArrayLinks = [
     {
-      title: "Inidfgcio",
+      title: "Inicio",
       path: "/dashboard",
     },
   ];
