@@ -1,15 +1,17 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useContext } from "react";
 import { Box, Typography, Container } from "@mui/material";
 import { useNavigate, useParams } from "react-router-dom";
 import { getAuthToken } from "../../shared/login";
 import NavBar from "../navbar/NavBar";
 import EditorComponent from "./EditorComponent";
 import MenuItems from "./MenuItems";
+import { CourseContext } from "../../context/CourseContext";
 
 function Course() {
   const token = getAuthToken();
   const navigate = useNavigate();
   const { id } = useParams();
+  const { courses } = useContext(CourseContext);
   console.log(id);
 
   useEffect(() => {
@@ -25,13 +27,25 @@ function Course() {
     },
   ];
 
+  const course = courses.find((course) => course.id === id);
+
   return (
     <>
       <Box sx={{ flexGrow: 1 }}>
         <NavBar navArrayLinks={navArrayLinks} />
+        
+        <MenuItems />
+        <Container
+          sx={{
+            bgcolor: "background.paper",
+            borderRadius: 6,
+            p: 2,
+          }}
+        >
         <Typography
           variant="h1"
           color="initial"
+          align="center"
           sx={{
             fontWeight: "700",
             fontSize: "2rem",
@@ -39,18 +53,8 @@ function Course() {
             mx: 2,
           }}
         >
-          Curso
+          {course.name}
         </Typography>
-        <MenuItems />
-        <Container
-          sx={{
-            bgcolor: "background.paper",
-            display: "flex",
-            justifyContent: "",
-            borderRadius: 6,
-            p: 2,
-          }}
-        >
           <EditorComponent />
         </Container>
       </Box>
