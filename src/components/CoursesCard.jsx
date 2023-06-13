@@ -36,9 +36,12 @@ function CoursesCard({ course, handleDeleteCourse }) {
           mr: 1,
           mb: 2,
           mt: 2,
-          ":hover": {
+          "&:hover": {
             boxShadow: 20,
             cursor: "pointer",
+            "& .MuiTypography-root": {
+              color: "primary.main",
+            }
           },
         }}
       >
