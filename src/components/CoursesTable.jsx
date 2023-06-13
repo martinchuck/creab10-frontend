@@ -13,9 +13,11 @@ import {
 import React, { useContext } from "react";
 import { CourseContext } from "../context/CourseContext";
 import AddIcon from "@mui/icons-material/Add";
+import { useNavigate } from "react-router-dom";
 
 function CoursesTable({ handleClickOpen }) {
   const { courses } = useContext(CourseContext);
+  const navigate = useNavigate();
 
   return (
     <TableContainer
@@ -44,10 +46,23 @@ function CoursesTable({ handleClickOpen }) {
           {courses.map((course) => (
             <TableRow
               key={course.id}
-              sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+              onClick={() => navigate(`/course/${course.id}`)}
+              sx={{ 
+                "&:last-child td, &:last-child th": { border: 0 } ,
+                "&:hover": {
+                  cursor: "pointer",
+                  backgroundColor: "#f5f5f5",
+                  "& .nameText": {
+                    color: "primary.main",
+                    fontWeight: "600",
+                  },
+                          
+                },
+                }}
+
             >
               <TableCell>{course.id}</TableCell>
-              <TableCell>{course.name}</TableCell>
+              <TableCell className="nameText">{course.name}</TableCell>
               <TableCell>
                 {course.state === "Sin Empezar" && (
                   <Chip

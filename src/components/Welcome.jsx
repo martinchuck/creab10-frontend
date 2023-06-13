@@ -47,7 +47,7 @@ export const Welcome = () => {
 
   const navArrayLinks = [
     {
-      title: "Inidfgcio",
+      title: "Inicio",
       path: "/dashboard",
     },
   ];
